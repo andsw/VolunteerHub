@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+
+    <!-- JDBC Connection Configuration -->
+    <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                    connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=volunteer_hub;encrypt=false;Trusted_Connection=false;MultipleActiveResultSets=true;TrustServerCertificate=True;"
+                    userId="sa"
+                    password="Conestoga1">
+    </jdbcConnection>
+
+    <!-- Java Model Generator Configuration -->
+    <javaModelGenerator targetPackage="ca.ontario.conestoga.volunteerhub.entity"
+                        targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <!-- SQL Map Generator Configuration -->
+    <sqlMapGenerator targetPackage="mapper"
+                     targetProject="src/main/resources/mapper">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <!-- Java Client Generator Configuration -->
+    <javaClientGenerator type="XMLMAPPER"
+                         targetPackage="ca.ontario.conestoga.volunteerhub.mapper"
+                         targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <!-- Table Configuration -->
+<!--    <table tableName="Test" domainObjectName="Test" />-->
+    <table tableName="account" domainObjectName="Account" />
+    <table tableName="organization" domainObjectName="Organization" />
+    <table tableName="volunteer" domainObjectName="Volunteer" />
+    <table tableName="volunteer_activity" domainObjectName="VolunteerActivity" />
+    <table tableName="participation_record" domainObjectName="ParticipationRecord" />
+    <table tableName="review" domainObjectName="Review" />
+    <table tableName="volunteer_review" domainObjectName="VolunteerReview" />
+    <table tableName="activities_review" domainObjectName="ActivitiesReview" />
+
+  </context>
+</generatorConfiguration>
