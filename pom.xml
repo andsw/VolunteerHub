@@ -83,11 +83,11 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- 输出详细信息 -->
+					<!-- output detailed info? -->
 					<verbose>true</verbose>
-					<!-- 覆盖生成文件 -->
+					<!-- overwrite existed files when generating? -->
 					<overwrite>true</overwrite>
-					<!-- 定义配置文件 -->
+					<!-- specify configuration file path -->
 					<configurationFile>${basedir}/src/main/resources/generator-configuration.xml</configurationFile>
 				</configuration>
 				<dependencies>
