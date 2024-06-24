@@ -14,7 +14,7 @@
     </jdbcConnection>
 
     <!-- Java Model Generator Configuration -->
-    <javaModelGenerator targetPackage="ca.ontario.conestoga.volunteerhub.entity"
+    <javaModelGenerator targetPackage="ca.ontario.conestoga.volunteer_hub.entity"
                         targetProject="src/main/java">
       <property name="enableSubPackages" value="true"/>
       <property name="trimStrings" value="true"/>
@@ -28,7 +28,7 @@
 
     <!-- Java Client Generator Configuration -->
     <javaClientGenerator type="XMLMAPPER"
-                         targetPackage="ca.ontario.conestoga.volunteerhub.mapper"
+                         targetPackage="ca.ontario.conestoga.volunteer_hub.mapper"
                          targetProject="src/main/java">
       <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
