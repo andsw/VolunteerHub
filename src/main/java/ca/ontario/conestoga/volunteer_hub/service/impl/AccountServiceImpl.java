@@ -7,6 +7,8 @@ import ca.ontario.conestoga.volunteer_hub.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 import static org.springframework.util.CollectionUtils.firstElement;
 
 @Service
@@ -23,5 +25,11 @@ public class AccountServiceImpl implements AccountService {
     AccountExample example = new AccountExample();
     example.createCriteria().andUsernameEqualTo(username);
     return firstElement(accountMapper.selectByExample(example));
+  }
+
+  @Override
+  public void saveAccount(Account account) {
+    account.setRegisterTime(new Date());
+    accountMapper.insertSelective(account);
   }
 }

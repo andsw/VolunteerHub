@@ -4,4 +4,6 @@ import ca.ontario.conestoga.volunteer_hub.entity.Account;
 
 public interface AccountService {
   Account getAccountByUsername(String username);
+
+  void saveAccount(Account account);
 }
