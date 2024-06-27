@@ -19,6 +19,11 @@ public class Result<T> implements Serializable {
 
 	private T data;
 
+  // no news is a good news
+  public static <T> Result<T> success() {
+    return Result.<T>builder().success(true).build();
+  }
+
   public static <T> Result<T> success(T data) {
     return Result.<T>builder().success(true).data(data).build();
   }
