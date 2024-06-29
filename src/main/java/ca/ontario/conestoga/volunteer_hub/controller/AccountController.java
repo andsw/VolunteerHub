@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/account")
 public class AccountController {
 
   private final AccountService accountService;
@@ -18,7 +19,7 @@ public class AccountController {
     this.accountService = accountService;
   }
 
-  @GetMapping(value = "/account/{username}")
+  @GetMapping(value = "/{username}")
   Result<Account> getAccount(@PathVariable String username) {
     Account account = accountService.getAccountByUsername(username);
     if (account == null) {
@@ -27,7 +28,7 @@ public class AccountController {
     return Result.success(account);
   }
 
-  @PostMapping(value = "/account")
+  @PostMapping(value = "/")
   public Result<?> registerAccount(@Parameter(description = "Username and password are required, let others be null")
                               @RequestBody Account account) {
     try {
