@@ -9,3 +9,7 @@ Project developed for System development and for reviewing rusted Java related t
 according to the tables in the sql server.
 6. Git init, add, commit, push to remote repository, and then create branches.
 7. Integrate frontend project into this project. And push changes to the remote repo.
+
+## Iteration 2
+1. add auto-generated api document, can be accessed by url:http://localhost:8080/swagger-ui/index.html#/ after running the project
+   reference blog: https://www.cnblogs.com/xiezhr/p/18253311
