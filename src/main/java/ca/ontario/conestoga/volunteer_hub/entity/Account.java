@@ -1,7 +1,10 @@
 package ca.ontario.conestoga.volunteer_hub.entity;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Date;
 
+@AllArgsConstructor
 public class Account {
     /**
      *
