@@ -1,15 +1,17 @@
-INSERT INTO dbo.account (username, password, register_time)
-VALUES
-('john_doe', 'password123', '2023-01-15'),
-('jane_smith', 'password456', '2023-02-20'),
-('sam_brown', 'password789', '2023-03-10'),
-('alice_white', 'password321', '2023-01-25'),
-('mike_green', 'password654', '2023-04-05'),
-('lucy_black', 'password987', '2023-05-01'),
-('tom_blue', 'password147', '2023-06-10'),
-('sara_gray', 'password258', '2023-07-15'),
-('chris_yellow', 'password369', '2023-08-20'),
-('kate_purple', 'password753', '2023-09-30');
+insert into dbo.account (id, username, password, register_time, account_type)
+values  (1, 'hsw', '123', '2023-01-15 00:00:00.000', 'volunteer'),
+        (2, 'jane_smith', 'password456', '2023-02-20 00:00:00.000', 'volunteer'),
+        (3, 'sam_brown', 'password789', '2023-03-10 00:00:00.000', 'volunteer'),
+        (4, 'alice_white', 'password321', '2023-01-25 00:00:00.000', 'volunteer'),
+        (5, 'mike_green', 'password654', '2023-04-05 00:00:00.000', 'volunteer'),
+        (6, 'lucy_black', 'password987', '2023-05-01 00:00:00.000', 'volunteer'),
+        (7, 'tom_blue', 'password147', '2023-06-10 00:00:00.000', 'volunteer'),
+        (8, 'sara_gray', 'password258', '2023-07-15 00:00:00.000', 'volunteer'),
+        (9, 'chris_yellow', 'password369', '2023-08-20 00:00:00.000', 'volunteer'),
+        (10, 'kate_purple', 'password753', '2023-09-30 00:00:00.000', 'volunteer'),
+        (11, 'Shaowen He', '123', '2024-07-05 17:01:11.920', 'volunteer'),
+        (12, 'asdf', '123', '2024-07-05 17:11:49.267', 'volunteer'),
+        (13, 'Shaowen', '123', '2024-07-05 22:36:52.747', 'volunteer');
 
 INSERT INTO dbo.activities_review (activity_id, activity_title, rate, volunteer_id, volunteer_username)
 VALUES

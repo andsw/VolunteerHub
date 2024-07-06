@@ -1,94 +1,93 @@
--- Table to store account information
--- auto-generated definition
-CREATE TABLE account
-(
-    id INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    username NVARCHAR(255) NOT NULL
-        CONSTRAINT account_username_pk
-            UNIQUE,
-    password NVARCHAR(255) NOT NULL,
-    register_time DATETIME NOT NULL
+create table volunteer_hub.dbo.account (
+  id int primary key not null,
+  username nvarchar(255) not null,
+  password nvarchar(255) not null,
+  register_time datetime not null,
+  account_type varchar(10) default ('volunteer') not null
 );
+create unique index account_username_pk on account (username);
+GO
 
--- Table to store organization information
-CREATE TABLE organization (
-    id INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    name NVARCHAR(255) NOT NULL,  -- Primary key, name of the organization
-    phone NVARCHAR(50),  -- Phone number of the organization
-    email NVARCHAR(255),  -- Email address of the organization
-    organization_type NVARCHAR(255),  -- Organization type or additional info
-    address NVARCHAR(255)  -- Address of the organization
+create table volunteer_hub.dbo.activities_review (
+  id int primary key not null,
+  activity_id int not null,
+  activity_title nvarchar(255),
+  rate int,
+  volunteer_id int,
+  volunteer_username nvarchar(255)
 );
+GO
 
--- Table to store volunteer information
-CREATE TABLE volunteer (
-    id INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    account_id INT NOT NULL,  -- Primary key, references account(id)
-    name NVARCHAR(255) NOT NULL,  -- Name of the volunteer
-    age INT,  -- Age of the volunteer
-    gender NVARCHAR(50),  -- Gender of the volunteer
-    marital_status NVARCHAR(50),  -- Marital status of the volunteer
-    occupation_status NVARCHAR(50),  -- Occupation status of the volunteer
-    phone NVARCHAR(50),  -- Phone number of the volunteer
-    email NVARCHAR(255),  -- Email address of the volunteer
-    address NVARCHAR(255),  -- Address of the volunteer
-    has_drivers_licence BIT,  -- Whether the volunteer has a driver's license
-    skills NVARCHAR(255),  -- Skills of the volunteer
-    academic_certificate NVARCHAR(255),  -- Academic certificate of the volunteer
-    resume_link NVARCHAR(255),  -- Link to the volunteer's resume
-    skill_tags NVARCHAR(255)  -- Tags for the volunteer's skills
+create table volunteer_hub.dbo.organization (
+  id int primary key not null,
+  name nvarchar(255) not null,
+  phone nvarchar(50),
+  email nvarchar(255),
+  organization_type nvarchar(255),
+  address nvarchar(255)
 );
+GO
 
--- Table to store volunteer activity information
-CREATE TABLE volunteer_activity (
-    id INT IDENTITY(1, 1) PRIMARY KEY,  -- Primary key
-    title NVARCHAR(255) NOT NULL,  -- Title of the activity
-    subtitle NVARCHAR(255),  -- Subtitle of the activity
-    imgs NVARCHAR(255),  -- Image links for the activity
-    host_id NVARCHAR(255),  -- Host organization ID, references organization(name)
-    description NVARCHAR(255),  -- Description of the activity
-    launch_time DATETIME,  -- Launch time of the activity
-    last_edit_time DATETIME,  -- Last edit time of the activity
-    likes_num INT,  -- Number of likes for the activity
-    collections_num INT,  -- Number of collections for the activity
-    reviews_num INT,  -- Number of reviews for the activity
-    required_skill_tags NVARCHAR(255),  -- Required skill tags for the activity
-    venue NVARCHAR(255),  -- Venue of the activity
-    activity_start_time DATETIME,  -- Start time of the activity
-    activity_end_time DATETIME  -- End time of the activity
+create table volunteer_hub.dbo.participation_record (
+  id int primary key not null,
+  activity_id int not null,
+  volunteer_id int not null,
+  participation_time datetime
 );
+GO
 
--- Table to store participation records of volunteers in activities
-CREATE TABLE participation_record (
-    id INT IDENTITY(1, 1) PRIMARY KEY,  -- Primary key
-    activity_id INT NOT NULL,  -- Activity ID, references volunteer_activity(id)
-    volunteer_id INT NOT NULL,  -- Volunteer ID, references volunteer(account_id)
-    participation_time DATETIME  -- Time of participation
+create table volunteer_hub.dbo.review (
+  id int primary key not null,
+  account_id int not null,
+  username nvarchar(255),
+  comment_date datetime,
+  comment nvarchar(255)
 );
+GO
 
--- Table to store reviews
-CREATE TABLE review (
-    id INT IDENTITY(1, 1) PRIMARY KEY,  -- Primary key
-    account_id INT NOT NULL,  -- Account ID, references account(id)
-    username NVARCHAR(255),  -- Username of the reviewer
-    comment_date DATETIME,  -- Date of the comment
-    comment NVARCHAR(255)  -- Comment text
+create table volunteer_hub.dbo.volunteer (
+  id int primary key not null,
+  account_id int not null,
+  name nvarchar(255) not null,
+  age int,
+  gender nvarchar(50),
+  marital_status nvarchar(50),
+  occupation_status nvarchar(50),
+  phone nvarchar(50),
+  email nvarchar(255),
+  address nvarchar(255),
+  has_drivers_licence bit,
+  skills nvarchar(255),
+  academic_certificate nvarchar(255),
+  resume_link nvarchar(255),
+  skill_tags nvarchar(255)
 );
+GO
 
--- Table to store volunteer reviews by organizations
-CREATE TABLE volunteer_review (
-    id INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    volunteer_id INT NOT NULL,  -- Volunteer ID, references volunteer(account_id)
-    organization_id NVARCHAR(255),  -- Organization ID, references organization(name)
-    organization_name NVARCHAR(255)  -- Name of the organization
+create table volunteer_hub.dbo.volunteer_activity (
+  id int primary key not null,
+  title nvarchar(255) not null,
+  subtitle nvarchar(255),
+  imgs nvarchar(255),
+  host_id nvarchar(255),
+  description nvarchar(255),
+  launch_time datetime,
+  last_edit_time datetime,
+  likes_num int,
+  collections_num int,
+  reviews_num int,
+  required_skill_tags nvarchar(255),
+  venue nvarchar(255),
+  activity_start_time datetime,
+  activity_end_time datetime
 );
+GO
 
--- Table to store reviews of activities by volunteers
-CREATE TABLE activities_review (
-    id INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    activity_id INT NOT NULL,  -- Activity ID, references volunteer_activity(id)
-    activity_title NVARCHAR(255),  -- Title of the activity
-    rate INT,  -- Rating given by the volunteer
-    volunteer_id INT,  -- Volunteer ID, references volunteer(account_id)
-    volunteer_username NVARCHAR(255)  -- Username of the volunteer
+create table volunteer_hub.dbo.volunteer_review (
+  id int primary key not null,
+  volunteer_id int not null,
+  organization_id nvarchar(255),
+  organization_name nvarchar(255)
 );
+GO
+
