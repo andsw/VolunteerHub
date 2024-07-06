@@ -16,7 +16,13 @@
     <!-- Java Model Generator Configuration -->
     <javaModelGenerator targetPackage="ca.ontario.conestoga.volunteer_hub.entity"
                         targetProject="src/main/java">
+      <!-- whether add constructor method -->
+      <property name="constructorBased" value="true"/>
+      <!-- whether allow the sub package, targetPackage.schemaName.tableName -->
       <property name="enableSubPackages" value="true"/>
+      <!-- whether the model immutable, if true, there is only constructor, no setter -->
+      <property name="immutable" value="false"/>
+      <!-- whether trim the value of char type -->
       <property name="trimStrings" value="true"/>
     </javaModelGenerator>
 
@@ -34,15 +40,15 @@
     </javaClientGenerator>
 
     <!-- Table Configuration -->
-<!--    <table tableName="Test" domainObjectName="Test" />-->
-    <table tableName="account" domainObjectName="Account" />
-    <table tableName="organization" domainObjectName="Organization" />
-    <table tableName="volunteer" domainObjectName="Volunteer" />
-    <table tableName="volunteer_activity" domainObjectName="VolunteerActivity" />
-    <table tableName="participation_record" domainObjectName="ParticipationRecord" />
-    <table tableName="review" domainObjectName="Review" />
-    <table tableName="volunteer_review" domainObjectName="VolunteerReview" />
-    <table tableName="activities_review" domainObjectName="ActivitiesReview" />
+    <table tableName="Test" domainObjectName="Test" />
+<!--    <table tableName="account" domainObjectName="Account" />-->
+<!--    <table tableName="organization" domainObjectName="Organization" />-->
+<!--    <table tableName="volunteer" domainObjectName="Volunteer" />-->
+<!--    <table tableName="volunteer_activity" domainObjectName="VolunteerActivity" />-->
+<!--    <table tableName="participation_record" domainObjectName="ParticipationRecord" />-->
+<!--    <table tableName="review" domainObjectName="Review" />-->
+<!--    <table tableName="volunteer_review" domainObjectName="VolunteerReview" />-->
+<!--    <table tableName="activities_review" domainObjectName="ActivitiesReview" />-->
 
   </context>
 </generatorConfiguration>
