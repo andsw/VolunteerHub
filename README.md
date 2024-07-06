@@ -11,5 +11,11 @@ according to the tables in the sql server.
 7. Integrate frontend project into this project. And push changes to the remote repo.
 
 ## Iteration 2
-1. add auto-generated api document, can be accessed by url:http://localhost:8080/swagger-ui/index.html#/ after running the project
-   reference blog: https://www.cnblogs.com/xiezhr/p/18253311
+1. Add auto-generated api document, can be accessed by url:http://localhost:8080/swagger-ui/index.html#/ after running the project
+   (reference blog: https://www.cnblogs.com/xiezhr/p/18253311), so frontend and backend developer can collaborate better.
+   The api document website also can be used as api test tool.
+2. Add dockerfile so the project can be deployed on the docker container.
+3. Add all tables' CURD(create/update/read/delete) api which is present as the controller classes in the controller directory.
+4. Add all frontend code into resource directory, so they can be accessed by springboot.
+5. Add mockup data into the database tables, used for testing.
+6. implement sign in/up, listing activities, present activities' detail info, activity join in features
