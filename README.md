@@ -19,3 +19,7 @@ according to the tables in the sql server.
 4. Add all frontend code into resource directory, so they can be accessed by springboot.
 5. Add mockup data into the database tables, used for testing.
 6. implement sign in/up, listing activities, present activities' detail info, activity join in features
+
+# Iteration 3
+1. Add MS SQL Server schema creation script.
+2. Get the RunDockerFiles script completely automatic.
