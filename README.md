@@ -23,3 +23,12 @@ according to the tables in the sql server.
 # Iteration 3
 1. Add MS SQL Server schema creation script.
 2. Get the RunDockerFiles script completely automatic.
+3. Deploy the database on the Google cloud sql
+   - configure proxy so that I can connect the cloud sql database use localhost.
+   - or add my ip on cloud sql network, to use the public ip connect the database.
+4. Deploy the project on the Google cloud run 
+5. Google cloud run connect the Google cloud sql successfully
+   now we can access website via below urls:
+   - homepage: https://volunteer-hub-exnzolcstq-uc.a.run.app
+   - api document: https://volunteer-hub-exnzolcstq-uc.a.run.app/swagger-ui/index.html
+6. 
