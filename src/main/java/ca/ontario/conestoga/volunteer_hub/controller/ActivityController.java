@@ -10,12 +10,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/activity")
-public class VolunteerActivityController {
+public class ActivityController {
 
   private final VolunteerActivityService volunteerActivityService;
 
   @Autowired
-  public VolunteerActivityController(VolunteerActivityService volunteerActivityService) {
+  public ActivityController(VolunteerActivityService volunteerActivityService) {
     this.volunteerActivityService = volunteerActivityService;
   }
 
