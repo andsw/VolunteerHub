@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Kalam" rel="stylesheet"> 
+   
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Vounlteer</title>
+    <style>
+      
+        .container {
+            /* width: 80%; */
+            max-width: 100%;
+            width: 100%;   
+            margin: auto;
+            overflow: hidden;
+        }
+        .activity {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .activity img {
+            width: 100px;
+            float: left;
+            margin-right: 20px;
+        }
+        .activity h3 {
+            margin-top: 0;
+        }
+        .activity p {
+            clear: both;
+        }
+        .skills, .engagement {
+            margin-top: 10px;
+        }
+        .skills span, .engagement a {
+            display: inline-block;
+            background: #03e9f4;
+            color: #fff;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .engagement a {
+            background: #333;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <section>
+            <nav>
+                <div class="nav-content">
+                    <div class="logo">
+                        <img src="../image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
+                    </div>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="activitylist.html">Activity List</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="login.html">Login</a>
+
+
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <section style="width: 80%; margin: 50px;font-family: 'Kalam', cursive;
+            background-color: #f4f4f4;" >
+        <h2>Activity Listing</h2>
+        
+        <div class="activity">
+            <img src="../image/activity1.jpg" alt="Activity Image">
+            <h3>Beach Cleanup</h3>
+            <p>Date: July 20, 2024</p>
+            <p>Location: Santa Monica Beach</p>
+            <p>Description: Join us for a beach cleanup event to help keep our beaches clean and beautiful.</p>
+            <div class="skills">
+                <h4>Required Skills:</h4>
+                <span>Teamwork</span>
+                <span>Physical Fitness</span>
+                <span>Environmental Awareness</span>
+            </div>
+            <div class="engagement">
+                <a onclick="openModal('chatModal')">Chat with Host</a>
+                <a onclick="openModal('reviewModal')">Review Activity</a>
+            </div>
+        </div>
+        
+        <div class="activity">
+            <img src="../image/activity2.jpg" alt="Activity Image">
+            <h3>Food Drive</h3>
+            <p>Date: August 15, 2024</p>
+            <p>Location: Downtown Community Center</p>
+            <p>Description: Help us collect and distribute food to those in need in our community.</p>
+            <div class="skills">
+                <h4>Required Skills:</h4>
+                <span>Organizational Skills</span>
+                <span>Communication</span>
+                <span>Empathy</span>
+            </div>
+            <div class="engagement">
+                <a onclick="openModal('chatModal')">Chat with Host</a>
+                <a onclick="openModal('reviewModal')">Review Activity</a>
+            </div>
+        </div>
+        </section>
+        <!-- More activities as needed -->
+
+        <!-- Chat Modal -->
+        <div id="chatModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('chatModal')">&times;</span>
+                <h2>Chat with Host</h2>
+                <div class="chat-box">
+                  
+                    <div class="message host">Hello! How can I assist you with the upcoming activity?</div>
+                    <div class="message volunteer">Hi! I wanted to know more about the schedule.</div>
+                    <!-- More chat messages here -->
+                </div>
+                <textarea class="chat-input" placeholder="Type your message..."></textarea>
+                <button class="send-btn"  onclick="mesg_snd()">Send</button>
+         
+            </div>
+        </div>
+
+        <!-- Review Modal -->
+        <div id="reviewModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('reviewModal')">&times;</span>
+                <h2>Review Activity</h2>
+                <div class="review-box">
+                    <h3>Beach Cleanup</h3>
+                    <form id="reviewForm" onsubmit="handleSubmit(event)">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" name="rating">
+                            <option value="5">Excellent</option>
+                            <option value="4">Very Good</option>
+                            <option value="3">Good</option>
+                            <option value="2">Fair</option>
+                            <option value="1">Poor</option>
+                        </select>
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="4" placeholder="Write your review here..."></textarea>
+                        <button class="submit-btn" type="submit">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <div class="quick-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="activitylist.html">Activity List</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="newsletter">
+                    <h2>Newsletter Subscription</h2>
+                    <input type="email" placeholder="Your Email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 @CopyrightVolunteerorg.com
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            // Simulate form submission and redirect
+            setTimeout(() => {
+                window.location.href = 'reviewconfirmation.html';
+            }, 1000); // Simulate a short delay before redirect
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var chatModal = document.getElementById('chatModal');
+            var reviewModal = document.getElementById('reviewModal');
+            if (event.target == chatModal) {
+                chatModal.style.display = "none";
+            }
+            if (event.target == reviewModal) {
+                reviewModal.style.display = "none";
+            }
+        }
+
+        function mesg_snd()
+        {
+            window.location.href = 'msgconfirmation.html';
+        }
+    </script>
+       
+</body>
+</html>
