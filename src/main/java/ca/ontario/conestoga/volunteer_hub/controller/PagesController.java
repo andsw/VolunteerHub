@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PagesController {
-  @GetMapping("/login")
+  @GetMapping("/login.html")
   public String login(HttpServletRequest request) {
     HttpSession session = request.getSession(false);
     if (session != null && session.getAttribute("username") != null) {
@@ -18,7 +18,7 @@ public class PagesController {
     }
   }
 
-  @GetMapping("/register")
+  @GetMapping("/register.html")
   public String register(HttpServletRequest request) {
     HttpSession session = request.getSession(false);
     if (session != null && session.getAttribute("username") != null) {
@@ -29,52 +29,52 @@ public class PagesController {
     }
   }
 
-  @GetMapping("/home")
+  @GetMapping("/home.html")
   public String home(HttpServletRequest request) {
     return "index";
   }
 
-  @GetMapping("/about")
+  @GetMapping("/about.html")
   public String about() {
     return "about";
   }
 
-  @GetMapping("/activity_detail")
+  @GetMapping("/activity_detail.html")
   public String activityDetail() {
     return "activity_detail";
   }
 
-  @GetMapping("/activity_list")
+  @GetMapping("/activity_list.html")
   public String activityList() {
     return "activity_list";
   }
 
-  @GetMapping("/contact")
+  @GetMapping("/contact.html")
   public String contact() {
     return "contact";
   }
 
-  @GetMapping("/join_activity")
+  @GetMapping("/join_activity.html")
   public String joinActivity() {
     return "join_activity";
   }
 
-  @GetMapping("/msg_confirmation")
+  @GetMapping("/msg_confirmation.html")
   public String msgConfirmation() {
     return "msg_confirmation";
   }
 
-  @GetMapping("/post_activity")
+  @GetMapping("/post_activity.html")
   public String postActivity() {
     return "post_activity";
   }
 
-  @GetMapping("/review_activity")
+  @GetMapping("/review_activity.html")
   public String reviewActivity() {
     return "review_activity";
   }
 
-  @GetMapping("/review_confirmation")
+  @GetMapping("/review_confirmation.html")
   public String reviewConfirmation() {
     return "review_confirmation";
   }
