@@ -89,7 +89,7 @@ public class AccountController {
 
         // Save user to database or perform registration logic
         try {
-            accountService.saveAccount(new Account(account.getId(), account.getUsername(), account.getPassword(), new Date()));
+            accountService.saveAccount(new Account(account.getId(), account.getUsername(), account.getPassword(), new Date(), account.getUserType()));
             return Result.success("Registration successful");
         } catch (Exception e) {
             return Result.error("Registration failed: " + e.getMessage());
