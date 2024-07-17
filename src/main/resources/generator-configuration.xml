@@ -9,7 +9,7 @@
     <!-- JDBC Connection Configuration -->
     <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
                     connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=volunteer_hub;encrypt=false;Trusted_Connection=false;MultipleActiveResultSets=true;TrustServerCertificate=True;"
-                    userId="sa"
+                    userId="sqlserver"
                     password="Conestoga1">
     </jdbcConnection>
 

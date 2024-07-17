@@ -1,18 +1,21 @@
-insert into dbo.account (id, username, password, register_time, account_type)
-values  (1, 'hsw', '123', '2023-01-15 00:00:00.000', 'volunteer'),
-        (2, 'jane_smith', 'password456', '2023-02-20 00:00:00.000', 'volunteer'),
-        (3, 'sam_brown', 'password789', '2023-03-10 00:00:00.000', 'volunteer'),
-        (4, 'alice_white', 'password321', '2023-01-25 00:00:00.000', 'volunteer'),
-        (5, 'mike_green', 'password654', '2023-04-05 00:00:00.000', 'volunteer'),
-        (6, 'lucy_black', 'password987', '2023-05-01 00:00:00.000', 'volunteer'),
-        (7, 'tom_blue', 'password147', '2023-06-10 00:00:00.000', 'volunteer'),
-        (8, 'sara_gray', 'password258', '2023-07-15 00:00:00.000', 'volunteer'),
-        (9, 'chris_yellow', 'password369', '2023-08-20 00:00:00.000', 'volunteer'),
-        (10, 'kate_purple', 'password753', '2023-09-30 00:00:00.000', 'volunteer'),
-        (11, 'Shaowen He', '123', '2024-07-05 17:01:11.920', 'volunteer'),
-        (12, 'asdf', '123', '2024-07-05 17:11:49.267', 'volunteer'),
-        (13, 'Shaowen', '123', '2024-07-05 22:36:52.747', 'volunteer');
+Truncate Table dbo.account;
+INSERT INTO dbo.account (username, password, register_time, account_type)
+VALUES
+('hsw', '123', '2023-01-15 00:00:00.000', 'volunteer'),
+('jane_smith', 'password456', '2023-02-20 00:00:00.000', 'volunteer'),
+('sam_brown', 'password789', '2023-03-10 00:00:00.000', 'volunteer'),
+('alice_white', 'password321', '2023-01-25 00:00:00.000', 'volunteer'),
+('mike_green', 'password654', '2023-04-05 00:00:00.000', 'volunteer'),
+('lucy_black', 'password987', '2023-05-01 00:00:00.000', 'volunteer'),
+('tom_blue', 'password147', '2023-06-10 00:00:00.000', 'volunteer'),
+('sara_gray', 'password258', '2023-07-15 00:00:00.000', 'volunteer'),
+('chris_yellow', 'password369', '2023-08-20 00:00:00.000', 'volunteer'),
+('kate_purple', 'password753', '2023-09-30 00:00:00.000', 'volunteer'),
+('Shaowen He', '123', '2024-07-05 17:01:11.920', 'volunteer'),
+('asdf', '123', '2024-07-05 17:11:49.267', 'volunteer'),
+('Shaowen', '123', '2024-07-05 22:36:52.747', 'volunteer');
 
+TRUNCATE TABLE dbo.activities_review;
 INSERT INTO dbo.activities_review (activity_id, activity_title, rate, volunteer_id, volunteer_username)
 VALUES
 (1, 'Beach Cleanup', 5, 1, 'john_doe'),
@@ -26,6 +29,7 @@ VALUES
 (3, 'Tree Planting', 4, 9, 'chris_yellow'),
 (4, 'Soup Kitchen', 5, 10, 'kate_purple');
 
+TRUNCATE TABLE dbo.organization;
 INSERT INTO dbo.organization (name, phone, email, organization_type, address)
 VALUES
 ('Green Earth', '123-456-7890', 'contact@greenearth.org', 'Non-Profit', '123 Green St, Toronto, ON'),
@@ -39,6 +43,7 @@ VALUES
 ('Health Heroes', '890-123-4567', 'contact@healthheroes.org', 'Non-Profit', '606 Health Blvd, Toronto, ON'),
 ('Clean Water Initiative', '901-234-5678', 'info@cleanwater.org', 'Non-Profit', '707 Water St, Toronto, ON');
 
+TRUNCATE TABLE dbo.participation_record;
 INSERT INTO dbo.participation_record (activity_id, volunteer_id, participation_time)
 VALUES
 (1, 1, '2023-04-10'),
@@ -52,6 +57,7 @@ VALUES
 (3, 9, '2023-11-15'),
 (4, 10, '2023-12-20');
 
+TRUNCATE TABLE dbo.review;
 INSERT INTO dbo.review (account_id, username, comment_date, comment)
 VALUES
 (1, 'john_doe', '2023-06-20', 'Great organization to volunteer with!'),
@@ -65,6 +71,7 @@ VALUES
 (9, 'chris_yellow', '2023-06-28', 'Great cause to support.'),
 (10, 'kate_purple', '2023-06-29', 'Fulfilling and rewarding.');
 
+TRUNCATE TABLE dbo.volunteer;
 INSERT INTO dbo.volunteer (account_id, name, age, gender, marital_status, occupation_status, phone, email, address, has_drivers_licence, skills, academic_certificate, resume_link, skill_tags)
 VALUES
 (1, 'John Doe', 30, 'Male', 'Single', 'Employed', '123-456-7890', 'john.doe@example.com', '123 Elm St, Toronto, ON', 1, 'First Aid, CPR', 'Bachelor of Science', 'http://resume.com/johndoe', 'Medical, Safety'),
@@ -78,6 +85,7 @@ VALUES
 (9, 'Chris Yellow', 35, 'Male', 'Married', 'Employed', '888-999-0000', 'chris.yellow@example.com', '606 Spruce St, Toronto, ON', 1, 'Photography, Videography', 'Bachelor of Fine Arts', 'http://resume.com/chrisyellow', 'Photography, Media'),
 (10, 'Kate Purple', 33, 'Female', 'Single', 'Employed', '999-000-1111', 'kate.purple@example.com', '707 Fir St, Toronto, ON', 1, 'Writing, Editing', 'Bachelor of Arts in English', 'http://resume.com/katepurple', 'Writing, Editing');
 
+TRUNCATE TABLE dbo.volunteer_activity;
 INSERT INTO dbo.volunteer_activity (title, subtitle, imgs, host_id, description, launch_time, last_edit_time, likes_num, collections_num, reviews_num, required_skill_tags, venue, activity_start_time, activity_end_time)
 VALUES
 ('Beach Cleanup', 'Help keep our beaches clean', 'img1.jpg', '1', 'Join us for a beach cleanup event.', '2023-05-01', '2023-05-02', 100, 50, 10, 'Environmental, Cleaning', 'Beach Park', '2023-06-01 09:00', '2023-06-01 12:00'),
@@ -91,6 +99,7 @@ VALUES
 ('Health Camp', 'Participate in the health camp', 'img9.jpg', '9', 'Join the health camp to support community health.', '2024-01-01', '2024-01-02', 105, 52, 10, 'Medical, First Aid', 'Health Center', '2024-02-01 09:00', '2024-02-01 13:00'),
 ('Clean Water Drive', 'Promote clean water initiatives', 'img10.jpg', '10', 'Support clean water initiatives in the community.', '2024-02-01', '2024-02-02', 115, 57, 11, 'Environmental, Organizing', 'Waterfront', '2024-03-01 10:00', '2024-03-01 14:00');
 
+TRUNCATE TABLE dbo.volunteer_review;
 INSERT INTO dbo.volunteer_review (volunteer_id, organization_id, organization_name)
 VALUES
 (1, '1', 'Green Earth'),
@@ -104,6 +113,7 @@ VALUES
 (9, '9', 'Health Heroes'),
 (10, '10', 'Clean Water Initiative');
 
+TRUNCATE TABLE dbo.activities_review;
 INSERT INTO dbo.activities_review (activity_id, activity_title, rate, volunteer_id, volunteer_username)
 VALUES
 (1, 'Beach Cleanup', 5, 1, 'john_doe'),
@@ -117,6 +127,7 @@ VALUES
 (9, 'Health Camp', 5, 9, 'chris_yellow'),
 (10, 'Clean Water Drive', 5, 10, 'kate_purple');
 
+Truncate Table dbo.participation_record;
 INSERT INTO dbo.participation_record (activity_id, volunteer_id, participation_time)
 VALUES
 (1, 1, '2023-06-01 09:00'),
