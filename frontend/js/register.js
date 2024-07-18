@@ -1,5 +1,5 @@
 // register.js
-document.getElementById('registerForm').addEventListener('submit', function(event) {
+document.getElementById('registerForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     // Retrieve form values
@@ -37,17 +37,17 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         },
         body: JSON.stringify(formData),
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Registered successfully');
-            window.location.href = '/login'; // Redirect to login page on success
-        } else {
-            alert('Registration failed: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred during registration');
-    });
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Registered successfully');
+                window.location.href = '/login'; // Redirect to login page on success
+            } else {
+                alert('Registration failed: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred during registration');
+        });
 });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Kalam" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Kalam" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="../static/js/basic.js"></script>
     <title>Activity Details</title>
@@ -14,11 +14,13 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
+
         .activity-detail {
             background: #fff;
             margin: 20px 0;
@@ -26,12 +28,15 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .activity-detail h2 {
             margin-top: 20px;
         }
+
         .activity-detail p {
             margin: 10px 0;
         }
+
         .activity-detail .icon {
             display: inline-block;
             width: 30px;
@@ -43,9 +48,11 @@
             color: #fff;
             border-radius: 50%;
         }
+
         .skills, .engagement {
             margin-top: 20px;
         }
+
         .skills span, .engagement a {
             display: inline-block;
             background: #03e9f4;
@@ -55,13 +62,16 @@
             border-radius: 4px;
             text-decoration: none;
         }
+
         .engagement a {
             background: #333;
         }
+
         .video-container {
             position: relative;
             width: 100%;
         }
+
         .video-container video {
             width: 100%;
             height: 100%;
@@ -78,8 +88,9 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
         }
+
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
@@ -88,12 +99,14 @@
             width: 80%;
             border-radius: 8px;
         }
+
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
+
         .close:hover,
         .close:focus {
             color: black;
@@ -103,108 +116,111 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <section>
-            <nav>
-                <div class="nav-content">
-                    <div class="logo">
-                        <img src="../static/image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
-                    </div>
-                    <div class="nav-links">
-                        <a href="/home">Home</a>
-                        <a href="/about">About Us</a>
-                        <a href="/activity_list">Activities</a>
-                        <a href="/contact">Contact Us</a>
-                        <a href="/login">Login</a>
-                    </div>
+<div class="container">
+    <section>
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="../static/image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
                 </div>
-            </nav>
-        </section>
-
-        <section class="activity-detail">
-            <h2 id="activity-title">Beach Cleanup</h2>
-            <p><span class="icon">&#128197;</span> <span id="activity-date">2024-12-12</span></p>
-            <p><span class="icon">&#127968;</span> <span id="activity-location">Beach Front, Example Beach, Coast City</span></p>
-            <p><span class="icon">&#128221;</span> <span id="activity-description">Join us for a community-driven beach cleanup event where volunteers gather to help preserve our coastal environment. This event aims to remove litter and debris from the beach, ensuring a clean and safe environment for everyone. Participants will work together to collect and properly dispose of waste, contributing to the conservation of marine life and habitats. Let's make a positive impact together!</span></p>
-            <div class="skills">
-                <h4>Required Skills:</h4>
-                <span id="skill1">Environmental awareness</span>
-                <span id="skill2">Teamwork</span>
-                <span id="skill3">Physical endurance</span>
-            </div>
-            <div class="engagement">
-                <a href="#" onclick="openModal('chatModal')">Chat with Host</a>
-                <a href="#" onclick="openModal('reviewModal')">Review Activity</a>
-                <a href="/join_activity">Join Activity</a>
-            </div>
-            <div class="video-container">
-                <video id="activity-video" controls autoplay loop>
-                    <source src="../static/Videos/Beach cleanup.mp4" type="video/mp4">
-                    <!-- Add other video sources (e.g., WebM, Ogg) as needed -->
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </section>
-
-        <!-- Chat Modal -->
-        <div id="chatModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('chatModal')">&times;</span>
-                <h2>Chat with Host</h2>
-                <div class="chat-box">
-                    <div class="message host">Hello! How can I assist you with the upcoming activity?</div>
-                    <div class="message volunteer">Hi! I wanted to know more about the schedule.</div>
-                    <!-- More chat messages here -->
+                <div class="nav-links">
+                    <a href="/home">Home</a>
+                    <a href="/about">About Us</a>
+                    <a href="/activity_list">Activities</a>
+                    <a href="/contact">Contact Us</a>
+                    <a href="/login">Login</a>
                 </div>
-                <textarea class="chat-input" placeholder="Type your message../static."></textarea>
-                <button class="send-btn" onclick="mesg_snd()">Send</button>
             </div>
+        </nav>
+    </section>
+
+    <section class="activity-detail">
+        <h2 id="activity-title">Beach Cleanup</h2>
+        <p><span class="icon">&#128197;</span> <span id="activity-date">2024-12-12</span></p>
+        <p><span class="icon">&#127968;</span> <span
+                id="activity-location">Beach Front, Example Beach, Coast City</span></p>
+        <p><span class="icon">&#128221;</span> <span id="activity-description">Join us for a community-driven beach cleanup event where volunteers gather to help preserve our coastal environment. This event aims to remove litter and debris from the beach, ensuring a clean and safe environment for everyone. Participants will work together to collect and properly dispose of waste, contributing to the conservation of marine life and habitats. Let's make a positive impact together!</span>
+        </p>
+        <div class="skills">
+            <h4>Required Skills:</h4>
+            <span id="skill1">Environmental awareness</span>
+            <span id="skill2">Teamwork</span>
+            <span id="skill3">Physical endurance</span>
         </div>
-
-        <!-- Review Modal -->
-        <div id="reviewModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('reviewModal')">&times;</span>
-                <h2>Review Activity</h2>
-                <div class="review-box">
-                    <form id="reviewForm" onsubmit="handleSubmit(event)">
-                        <label for="rating">Rating:</label>
-                        <select id="rating" name="rating">
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
-                            <option value="3">Good</option>
-                            <option value="2">Fair</option>
-                            <option value="1">Poor</option>
-                        </select>
-                        <label for="comments">Comments:</label>
-                        <textarea id="comments" name="comments" rows="4" placeholder="Write your review here../static."></textarea>
-                        <button class="submit-btn" type="submit">Submit Review</button>
-                    </form>
-                </div>
-            </div>
+        <div class="engagement">
+            <a href="#" onclick="openModal('chatModal')">Chat with Host</a>
+            <a href="#" onclick="openModal('reviewModal')">Review Activity</a>
+            <a href="/join_activity">Join Activity</a>
         </div>
+        <div class="video-container">
+            <video id="activity-video" controls autoplay loop>
+                <source src="../static/Videos/Beach cleanup.mp4" type="video/mp4">
+                <!-- Add other video sources (e.g., WebM, Ogg) as needed -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
 
-        <footer>
-            <div class="footer-content">
-                <div class="quick-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="activity_list.html">Activity List</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-                <div class="newsletter">
-                    <h2>Newsletter Subscription</h2>
-                    <input type="email" placeholder="Your Email">
-                    <button>Subscribe</button>
-                </div>
+    <!-- Chat Modal -->
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('chatModal')">&times;</span>
+            <h2>Chat with Host</h2>
+            <div class="chat-box">
+                <div class="message host">Hello! How can I assist you with the upcoming activity?</div>
+                <div class="message volunteer">Hi! I wanted to know more about the schedule.</div>
+                <!-- More chat messages here -->
             </div>
-            <div class="footer-bottom">
-                &copy; 2024 @CopyrightVolunteerorg.com
-            </div>
-        </footer>
+            <textarea class="chat-input" placeholder="Type your message../static."></textarea>
+            <button class="send-btn" onclick="mesg_snd()">Send</button>
+        </div>
     </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('reviewModal')">&times;</span>
+            <h2>Review Activity</h2>
+            <div class="review-box">
+                <form id="reviewForm" onsubmit="handleSubmit(event)">
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating">
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"
+                              placeholder="Write your review here../static."></textarea>
+                    <button class="submit-btn" type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="activity_list.html">Activity List</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="newsletter">
+                <h2>Newsletter Subscription</h2>
+                <input type="email" placeholder="Your Email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 @CopyrightVolunteerorg.com
+        </div>
+    </footer>
+</div>
 <script src="../static/js/nav.js"></script>
 </body>
 </html>

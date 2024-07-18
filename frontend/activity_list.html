@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <title>Vounlteer</title>
     <style>
-      
+
         .container {
             /* width: 80%; */
             max-width: 100%;
-            width: 100%;   
+            width: 100%;
             margin: auto;
             overflow: hidden;
         }
+
         .activity {
             background: #fff;
             margin: 20px 0;
@@ -23,20 +24,25 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .activity img {
             width: 100px;
             float: left;
             margin-right: 20px;
         }
+
         .activity h3 {
             margin-top: 0;
         }
+
         .activity p {
             clear: both;
         }
+
         .skills, .engagement {
             margin-top: 10px;
         }
+
         .skills span, .engagement a {
             display: inline-block;
             background: #03e9f4;
@@ -47,6 +53,7 @@
             text-decoration: none;
             cursor: pointer;
         }
+
         .engagement a {
             background: #333;
         }
@@ -61,9 +68,10 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
         }
+
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
@@ -72,12 +80,14 @@
             width: 80%;
             border-radius: 8px;
         }
+
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
+
         .close:hover,
         .close:focus {
             color: black;
@@ -87,29 +97,29 @@
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <section>
-            <nav>
-                <div class="nav-content">
-                    <div class="logo">
-                        <img src="../static/image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
-                    </div>
-                    <div class="nav-links">
-                        <a href="/home">Home</a>
-                        <a href="/about">About Us</a>
-                        <a href="/activity_list">Activities</a>
-                        <a href="/contact">Contact Us</a>
-                        <a href="/login">Login</a>
-                    </div>
+    <section>
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="../static/image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
                 </div>
-            </nav>
-        </section>
+                <div class="nav-links">
+                    <a href="/home">Home</a>
+                    <a href="/about">About Us</a>
+                    <a href="/activity_list">Activities</a>
+                    <a href="/contact">Contact Us</a>
+                    <a href="/login">Login</a>
+                </div>
+            </div>
+        </nav>
+    </section>
 
-        <section style="width: 80%; margin: 50px;font-family: 'Kalam', cursive;
-            background-color: #f4f4f4;" >
+    <section style="width: 80%; margin: 50px;font-family: 'Kalam', cursive;
+            background-color: #f4f4f4;">
         <h2>Activity Listing</h2>
-        
+
         <div class="activity">
             <img src="../static/image/activity1.jpg" alt="Activity Image">
             <h3>Beach Cleanup</h3>
@@ -128,7 +138,7 @@
                 <a href="/activity_detail">View Activity</a>
             </div>
         </div>
-        
+
         <div class="activity">
             <img src="../static/image/activity2.jpg" alt="Activity Image">
             <h3>Food Drive</h3>
@@ -147,70 +157,71 @@
                 <a href="/activity_detail">View Activity</a>
             </div>
         </div>
-        </section>
-        <!-- More activities as needed -->
+    </section>
+    <!-- More activities as needed -->
 
-        <!-- Chat Modal -->
-        <div id="chatModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('chatModal')">&times;</span>
-                <h2>Chat with Host</h2>
-                <div class="chat-box">
-                  
-                    <div class="message host">Hello! How can I assist you with the upcoming activity?</div>
-                    <div class="message volunteer">Hi! I wanted to know more about the schedule.</div>
-                    <!-- More chat messages here -->
-                </div>
-                <textarea class="chat-input" placeholder="Type your message../static."></textarea>
-                <button class="send-btn"  onclick="mesg_snd()">Send</button>
-         
-            </div>
-        </div>
+    <!-- Chat Modal -->
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('chatModal')">&times;</span>
+            <h2>Chat with Host</h2>
+            <div class="chat-box">
 
-        <!-- Review Modal -->
-        <div id="reviewModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('reviewModal')">&times;</span>
-                <h2>Review Activity</h2>
-                <div class="review-box">
-                    <h3>Beach Cleanup</h3>
-                    <form id="reviewForm" onsubmit="handleSubmit(event)">
-                        <label for="rating">Rating:</label>
-                        <select id="rating" name="rating">
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
-                            <option value="3">Good</option>
-                            <option value="2">Fair</option>
-                            <option value="1">Poor</option>
-                        </select>
-                        <label for="comments">Comments:</label>
-                        <textarea id="comments" name="comments" rows="4" placeholder="Write your review here../static."></textarea>
-                        <button class="submit-btn" type="submit">Submit Review</button>
-                    </form>
-                </div>
+                <div class="message host">Hello! How can I assist you with the upcoming activity?</div>
+                <div class="message volunteer">Hi! I wanted to know more about the schedule.</div>
+                <!-- More chat messages here -->
             </div>
+            <textarea class="chat-input" placeholder="Type your message../static."></textarea>
+            <button class="send-btn" onclick="mesg_snd()">Send</button>
+
         </div>
-        <footer>
-            <div class="footer-content">
-                <div class="quick-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="activity_list.html">Activity List</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-                <div class="newsletter">
-                    <h2>Newsletter Subscription</h2>
-                    <input type="email" placeholder="Your Email">
-                    <button>Subscribe</button>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2024 @CopyrightVolunteerorg.com
-            </div>
-        </footer>
     </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('reviewModal')">&times;</span>
+            <h2>Review Activity</h2>
+            <div class="review-box">
+                <h3>Beach Cleanup</h3>
+                <form id="reviewForm" onsubmit="handleSubmit(event)">
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating">
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"
+                              placeholder="Write your review here../static."></textarea>
+                    <button class="submit-btn" type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="activity_list.html">Activity List</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="newsletter">
+                <h2>Newsletter Subscription</h2>
+                <input type="email" placeholder="Your Email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 @CopyrightVolunteerorg.com
+        </div>
+    </footer>
+</div>
 <script src="../static/js/nav.js"></script>
 <script src="../static/js/activity_list.js"></script>
 </body>

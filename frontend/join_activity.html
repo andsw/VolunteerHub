@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Kalam" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Kalam" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="../static/js/basic.js"></script>
     <title>Join Activity</title>
@@ -14,11 +14,13 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
+
         .join-form {
             background: #fff;
             margin: 20px 0;
@@ -26,16 +28,20 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .join-form h2 {
             margin-top: 20px;
         }
+
         .join-form p {
             margin: 10px 0;
         }
+
         .join-form label {
             display: block;
             margin-bottom: 8px;
         }
+
         .join-form input, .join-form textarea {
             width: 100%;
             padding: 8px;
@@ -45,6 +51,7 @@
             box-sizing: border-box;
             font-size: 16px;
         }
+
         .join-form button {
             background-color: #333333;
             color: #fff;
@@ -57,72 +64,72 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <section>
-            <nav>
-                <div class="nav-content">
-                    <div class="logo">
-                        <img src="../static/image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
-                    </div>
-                    <div class="nav-links">
-                        <a href="/home">Home</a>
-                        <a href="/about">About Us</a>
-                        <a href="/activity_list">Activities</a>
-                        <a href="/contact">Contact Us</a>
-                        <a href="/login">Login</a>
-                    </div>
+<div class="container">
+    <section>
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="../static/image/logo2.jpg" alt="Logo Image" width="150px" height="auto">
                 </div>
-            </nav>
-        </section>
-
-        <section class="join-form">
-            <h2>Join Activity</h2>
-            <form id="joinActivityForm" action="#" method="POST" onsubmit="submitForm(event)">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message (Optional):</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-                
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-
-        <footer>
-            <div class="footer-content">
-                <div class="quick-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="activity_list.html">Activity List</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-                <div class="newsletter">
-                    <h2>Newsletter Subscription</h2>
-                    <input type="email" placeholder="Your Email">
-                    <button>Subscribe</button>
+                <div class="nav-links">
+                    <a href="/home">Home</a>
+                    <a href="/about">About Us</a>
+                    <a href="/activity_list">Activities</a>
+                    <a href="/contact">Contact Us</a>
+                    <a href="/login">Login</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2024 @CopyrightVolunteerorg.com
-            </div>
-        </footer>
-    </div>
+        </nav>
+    </section>
 
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            // You can handle form submission here (e.g., send data to server or show confirmation message)
-            // For demonstration, let's redirect to a confirmation page after a short delay
-            setTimeout(() => {
-                window.location.href = 'joinconfirmation.html';
-            }, 1000); // Simulate a short delay before redirect
-        }
-    </script>
+    <section class="join-form">
+        <h2>Join Activity</h2>
+        <form id="joinActivityForm" action="#" method="POST" onsubmit="submitForm(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message (Optional):</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="quick-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="activity_list.html">Activity List</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="newsletter">
+                <h2>Newsletter Subscription</h2>
+                <input type="email" placeholder="Your Email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 @CopyrightVolunteerorg.com
+        </div>
+    </footer>
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+        // You can handle form submission here (e.g., send data to server or show confirmation message)
+        // For demonstration, let's redirect to a confirmation page after a short delay
+        setTimeout(() => {
+            window.location.href = 'joinconfirmation.html';
+        }, 1000); // Simulate a short delay before redirect
+    }
+</script>
 
 <script src="../static/js/nav.js"></script>
 </body>
