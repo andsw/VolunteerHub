@@ -1,8 +1,8 @@
 package ca.ontario.conestoga.volunteer_hub.controller;
 
-import ca.ontario.conestoga.volunteer_hub.entity.VolunteerActivity;
+import ca.ontario.conestoga.volunteer_hub.entity.Activity;
 import ca.ontario.conestoga.volunteer_hub.model.Result;
-import ca.ontario.conestoga.volunteer_hub.service.VolunteerActivityService;
+import ca.ontario.conestoga.volunteer_hub.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,44 +12,44 @@ import java.util.List;
 @RequestMapping("/activity")
 public class ActivityController {
 
-  private final VolunteerActivityService volunteerActivityService;
+  private final ActivityService ActivityService;
 
   @Autowired
-  public ActivityController(VolunteerActivityService volunteerActivityService) {
-    this.volunteerActivityService = volunteerActivityService;
+  public ActivityController(ActivityService ActivityService) {
+    this.ActivityService = ActivityService;
   }
 
   @GetMapping("/{id}")
-  public Result<VolunteerActivity> getVolunteerActivity(@PathVariable Integer id) {
-    VolunteerActivity volunteerActivity = volunteerActivityService.getVolunteerActivityById(id);
-    if (volunteerActivity == null) {
+  public Result<Activity> getActivity(@PathVariable Integer id) {
+    Activity Activity = ActivityService.getActivityById(id);
+    if (Activity == null) {
       return Result.error("Volunteer activity not found for ID: " + id);
     }
-    return Result.success(volunteerActivity);
+    return Result.success(Activity);
   }
 
   @GetMapping("/")
-  public Result<List<VolunteerActivity>> getAllVolunteerActivities() {
-    List<VolunteerActivity> volunteerActivities = volunteerActivityService.getAllVolunteerActivities();
+  public Result<List<Activity>> getAllVolunteerActivities() {
+    List<Activity> volunteerActivities = ActivityService.getAllActivities();
     return Result.success(volunteerActivities);
   }
 
   @PostMapping("/")
-  public Result<Void> createVolunteerActivity(@RequestBody VolunteerActivity volunteerActivity) {
-    volunteerActivityService.saveVolunteerActivity(volunteerActivity);
+  public Result<Void> createActivity(@RequestBody Activity Activity) {
+    ActivityService.saveActivity(Activity);
     return Result.success();
   }
 
   @PutMapping("/{id}")
-  public Result<Void> updateVolunteerActivity(@PathVariable Integer id, @RequestBody VolunteerActivity volunteerActivity) {
-    volunteerActivity.setId(id);
-    volunteerActivityService.updateVolunteerActivity(volunteerActivity);
+  public Result<Void> updateActivity(@PathVariable Integer id, @RequestBody Activity Activity) {
+    Activity.setId(id);
+    ActivityService.updateActivity(Activity);
     return Result.success();
   }
 
   @DeleteMapping("/{id}")
-  public Result<Void> deleteVolunteerActivity(@PathVariable Integer id) {
-    volunteerActivityService.deleteVolunteerActivity(id);
+  public Result<Void> deleteActivity(@PathVariable Integer id) {
+    ActivityService.deleteActivity(id);
     return Result.success();
   }
 }
