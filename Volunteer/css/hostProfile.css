@@ -1,0 +1,82 @@
+body {
+    font-family: 'Kalam', cursive;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    text-align: left;
+}
+
+.profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profileHeader img {
+    border-radius: 50%;
+    border: 3px solid #03e9f4;
+    margin-bottom: 10px;
+}
+
+.profileHeader h2 {
+    font-family: 'Bilbo Swash Caps', cursive;
+    font-size: 2.5em;
+    color: #03e9f4;
+}
+
+.profileHeader p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.profileBio, .profileExperience, .profileVolunteerHub, .profileActivities, .profileTestimonials, .profileGallery, .profileSocialMedia, .profileAchievements, .profileEvents, .profileEngagement {
+    margin-bottom: 20px;
+}
+
+.profileBio h3, .profileExperience h3, .profileVolunteerHub h3, .profileActivities h3, .profileTestimonials h3, .profileGallery h3, .profileSocialMedia h3, .profileAchievements h3, .profileEvents h3, .profileEngagement h3 {
+    color: #03e9f4;
+    margin-bottom: 10px;
+}
+
+.profileBio p, .profileExperience p, .profileVolunteerHub p, .profileActivities ul, .profileTestimonials p, .profileSocialMedia p, .profileAchievements p, .profileEvents p, .profileEngagement p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.profileActivities ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.profileActivities ul li {
+    margin: 5px 0;
+}
+
+.profileGallery .gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.profileGallery .gallery img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    border: 2px solid #03e9f4;
+}

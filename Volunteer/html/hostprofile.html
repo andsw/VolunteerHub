@@ -3,73 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/hostProfile.css">
     <title>Host Profile</title>
-    <style>
-        body {
-            font-family: 'Kalam', cursive;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .profile-container {
-            width: 80%;
-            margin: 0 auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .profile-header {
-            background-color: #03e9f4;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .profile-pic {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-        }
-
-        .profile-details {
-            padding: 20px;
-        }
-
-        .profile-details h2 {
-            border-bottom: 2px solid #03e9f4;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .profile-details p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .profile-details strong {
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="images/.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>Host Name</h1>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profileHeader">
+            <img src="../image/hostprofile.jpg" alt="Host Image" width="150px">
+            <h2>John Doe</h2>
+            <p>Location: City, State</p>
+            <p>Contact: john.doe@example.com</p>
         </div>
-        <div class="profile-details">
-            <h2>Personal Details</h2>
-            <p><strong>Username:</strong> host_username</p>
-            <p><strong>Email:</strong> host_email@example.com</p>
-            <p><strong>Phone:</strong> +1 123-456-7890</p>
-            <h2>Additional Information</h2>
-            <p><strong>Address:</strong> 123 Host Street, City, State, ZIP</p>
-            <p><strong>Joined:</strong> January 1, 2020</p>
-            <p><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+
+        <!-- Biography -->
+        <div class="profileBio">
+            <h3>About Me</h3>
+            <p>This is a placeholder biography.</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="profileExperience">
+            <h3>Experience</h3>
+            <p>Placeholder experience details...</p>
+        </div>
+
+        <!-- Involvement with Volunteer Hub -->
+        <div class="profileVolunteerHub">
+            <h3>My Involvement with Volunteer Hub</h3>
+            <p><strong>Associated with Volunteer Hub since:</strong> January 2020</p>
+            <p><strong>Favorite Aspect:</strong> Engaging with passionate volunteers</p>
+            <p><strong>Started on:</strong> January 1, 2020</p>
+        </div>
+
+        <!-- Hosted Activities -->
+        <div class="profileActivities">
+            <h3>My Activities</h3>
+            <h4>Upcoming Activities</h4>
+            <ul>
+                <li>Activity 1 - Date, Details</li>
+                <li>Activity 2 - Date, Details</li>
+            </ul>
+            <h4>Past Activities</h4>
+            <ul>
+                <li>Activity 1 - Feedback, Outcome</li>
+                <li>Activity 2 - Feedback, Outcome</li>
+            </ul>
+        </div>
+
+        <!-- Testimonials and Feedback -->
+        <div class="profileTestimonials">
+            <h3>Testimonials</h3>
+            <p><strong>From Volunteers:</strong></p>
+            <ul>
+                <li>Great host! - Alice</li>
+                <li>Very engaging activities. - Bob</li>
+            </ul>
+        </div>
+
+        <!-- Media Gallery -->
+        <div class="profileGallery">
+            <h3>Media Gallery</h3>
+            <div class="gallery">
+                <img src="path/to/default/gallery_image1.jpg" alt="Event Image">
+                <img src="path/to/default/gallery_image2.jpg" alt="Event Image">
+            </div>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="profileSocialMedia">
+            <h3>Connect with Me</h3>
+            <p>
+                <a href="#">LinkedIn</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Facebook</a> |
+                <a href="#">Instagram</a>
+            </p>
+        </div>
+
+        <!-- Achievements and Awards -->
+        <div class="profileAchievements">
+            <h3>Achievements</h3>
+            <ul>
+                <li>Placeholder achievement...</li>
+            </ul>
+        </div>
+
+        <!-- Upcoming Events and Reminders -->
+        <div class="profileEvents">
+            <h3>Upcoming Events</h3>
+            <p>Calendar view with reminders...</p>
+        </div>
+
+        <!-- Blog/Articles -->
+        <div class="profileEngagement">
+            <h3>Blog</h3>
+            <ul>
+                <li>Sample Blog Title - Date</li>
+            </ul>
         </div>
     </div>
+
+    <script src="../js/hostProfile.js"></script>
 </body>
 </html>
