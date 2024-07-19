@@ -32,12 +32,12 @@ public class VolunteerReviewServiceImpl implements VolunteerReviewService {
 
   @Override
   public void saveVolunteerReview(VolunteerReview volunteerReview) {
-    volunteerReviewMapper.insert(volunteerReview);
+    volunteerReviewMapper.insertSelective(volunteerReview);
   }
 
   @Override
   public void updateVolunteerReview(VolunteerReview volunteerReview) {
-    volunteerReviewMapper.updateByPrimaryKey(volunteerReview);
+    volunteerReviewMapper.updateByPrimaryKeySelective(volunteerReview);
   }
 
   @Override

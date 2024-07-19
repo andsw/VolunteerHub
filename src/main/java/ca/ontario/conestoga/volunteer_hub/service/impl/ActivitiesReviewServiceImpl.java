@@ -32,12 +32,12 @@ public class ActivitiesReviewServiceImpl implements ActivitiesReviewService {
 
   @Override
   public void saveActivitiesReview(ActivitiesReview activitiesReview) {
-    activitiesReviewMapper.insert(activitiesReview);
+    activitiesReviewMapper.insertSelective(activitiesReview);
   }
 
   @Override
   public void updateActivitiesReview(ActivitiesReview activitiesReview) {
-    activitiesReviewMapper.updateByPrimaryKey(activitiesReview);
+    activitiesReviewMapper.updateByPrimaryKeySelective(activitiesReview);
   }
 
   @Override

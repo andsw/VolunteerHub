@@ -32,12 +32,12 @@ public class ActivityServiceImpl implements ActivityService {
 
   @Override
   public void saveActivity(Activity Activity) {
-    activityMapper.insert(Activity);
+    activityMapper.insertSelective(Activity);
   }
 
   @Override
   public void updateActivity(Activity Activity) {
-    activityMapper.updateByPrimaryKey(Activity);
+    activityMapper.updateByPrimaryKeySelective(Activity);
   }
 
   @Override

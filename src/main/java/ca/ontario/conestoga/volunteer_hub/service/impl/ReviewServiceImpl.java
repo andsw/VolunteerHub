@@ -32,12 +32,12 @@ public class ReviewServiceImpl implements ReviewService {
 
   @Override
   public void saveReview(Review review) {
-    reviewMapper.insert(review);
+    reviewMapper.insertSelective(review);
   }
 
   @Override
   public void updateReview(Review review) {
-    reviewMapper.updateByPrimaryKey(review);
+    reviewMapper.updateByPrimaryKeySelective(review);
   }
 
   @Override

@@ -32,12 +32,12 @@ public class ParticipationRecordServiceImpl implements ParticipationRecordServic
 
   @Override
   public void saveParticipationRecord(ParticipationRecord participationRecord) {
-    participationRecordMapper.insert(participationRecord);
+    participationRecordMapper.insertSelective(participationRecord);
   }
 
   @Override
   public void updateParticipationRecord(ParticipationRecord participationRecord) {
-    participationRecordMapper.updateByPrimaryKey(participationRecord);
+    participationRecordMapper.updateByPrimaryKeySelective(participationRecord);
   }
 
   @Override

@@ -32,12 +32,12 @@ public class VolunteerServiceImpl implements VolunteerService {
 
   @Override
   public void saveVolunteer(Volunteer volunteer) {
-    volunteerMapper.insert(volunteer);
+    volunteerMapper.insertSelective(volunteer);
   }
 
   @Override
   public void updateVolunteer(Volunteer volunteer) {
-    volunteerMapper.updateByPrimaryKey(volunteer);
+    volunteerMapper.updateByPrimaryKeySelective(volunteer);
   }
 
   @Override

@@ -32,12 +32,12 @@ public class OrganizationServiceImpl implements OrganizationService {
 
   @Override
   public void saveOrganization(Organization organization) {
-    organizationMapper.insert(organization);
+    organizationMapper.insertSelective(organization);
   }
 
   @Override
   public void updateOrganization(Organization organization) {
-    organizationMapper.updateByPrimaryKey(organization);
+    organizationMapper.updateByPrimaryKeySelective(organization);
   }
 
   @Override
