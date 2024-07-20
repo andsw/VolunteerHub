@@ -43,12 +43,10 @@
     <table tableName="Test" domainObjectName="Test" />
 <!--    <table tableName="account" domainObjectName="Account" />-->
 <!--    <table tableName="organization" domainObjectName="Organization" />-->
+<!--    <table tableName="host" domainObjectName="Host" />-->
 <!--    <table tableName="volunteer" domainObjectName="Volunteer" />-->
 <!--    <table tableName="activity" domainObjectName="Activity" />-->
 <!--    <table tableName="participation_record" domainObjectName="ParticipationRecord" />-->
-<!--    <table tableName="review" domainObjectName="Review" />-->
 <!--    <table tableName="volunteer_review" domainObjectName="VolunteerReview" />-->
-<!--    <table tableName="activities_review" domainObjectName="ActivitiesReview" />-->
-
   </context>
 </generatorConfiguration>

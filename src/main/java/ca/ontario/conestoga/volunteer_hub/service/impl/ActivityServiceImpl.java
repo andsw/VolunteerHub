@@ -15,8 +15,8 @@ public class ActivityServiceImpl implements ActivityService {
   private final ActivityMapper activityMapper;
 
   @Autowired
-  public ActivityServiceImpl(ActivityMapper ActivityMapper) {
-    this.activityMapper = ActivityMapper;
+  public ActivityServiceImpl(ActivityMapper activityMapper) {
+    this.activityMapper = activityMapper;
   }
 
   @Override
@@ -25,19 +25,19 @@ public class ActivityServiceImpl implements ActivityService {
   }
 
   @Override
-  public List<Activity> getAllActivities() {
+  public List<Activity> getAllVolunteerActivities() {
     ActivityExample example = new ActivityExample();
     return activityMapper.selectByExample(example);
   }
 
   @Override
   public void saveActivity(Activity Activity) {
-    activityMapper.insertSelective(Activity);
+    activityMapper.insert(Activity);
   }
 
   @Override
   public void updateActivity(Activity Activity) {
-    activityMapper.updateByPrimaryKeySelective(Activity);
+    activityMapper.updateByPrimaryKey(Activity);
   }
 
   @Override

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ActivityService {
   Activity getActivityById(Integer id);
-  List<Activity> getAllActivities();
+  List<Activity> getAllVolunteerActivities();
   void saveActivity(Activity Activity);
   void updateActivity(Activity Activity);
   void deleteActivity(Integer id);

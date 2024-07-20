@@ -30,7 +30,7 @@ public class ActivityController {
 
   @GetMapping("/")
   public Result<List<Activity>> getAllVolunteerActivities() {
-    List<Activity> volunteerActivities = ActivityService.getAllActivities();
+    List<Activity> volunteerActivities = ActivityService.getAllVolunteerActivities();
     return Result.success(volunteerActivities);
   }
 

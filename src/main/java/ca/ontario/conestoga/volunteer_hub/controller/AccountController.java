@@ -83,16 +83,17 @@ public class AccountController {
     @PostMapping("/register")
     public Result<String> registerUser(@RequestBody NewAccount account) {
         // Validate password and other form data if necessary
-        if (!account.getPassword().equals(account.getConfirmPassword())) {
-            return Result.error("Passwords do not match");
-        }
-
-        // Save user to database or perform registration logic
-        try {
-            accountService.saveAccount(new Account(account.getId(), account.getUsername(), account.getPassword(), new Date(), account.getUserType()));
-            return Result.success("Registration successful");
-        } catch (Exception e) {
-            return Result.error("Registration failed: " + e.getMessage());
-        }
+//        if (!account.getPassword().equals(account.getConfirmPassword())) {
+//            return Result.error("Passwords do not match");
+//        }
+//
+//        // Save user to database or perform registration logic
+//        try {
+//            accountService.saveAccount(new Account(account.getId(), account.getUsername(), account.getPassword(), new Date(), account.getUserType()));
+//            return Result.success("Registration successful");
+//        } catch (Exception e) {
+//            return Result.error("Registration failed: " + e.getMessage());
+//        }
+        return Result.error("Registration failed: ");
     }
 }
