@@ -4,14 +4,37 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+import java.util.List;
 
 @Configuration
 public class SwaggerConfiguration {
+  @Profile("dev")
   @Bean
-  public OpenAPI openAPI() {
-    return new OpenAPI().info(this.getApiInfo());
+  public OpenAPI openAPIDev() {
+    Server server = new Server();
+    server.setUrl("http://localhost:8080");
+    server.setDescription("Production server");
+
+    return new OpenAPI()
+        .info(this.getApiInfo())
+        .servers(List.of(server));
+  }
+
+  @Profile("prod")
+  @Bean
+  public OpenAPI openAPIProd() {
+    Server server = new Server();
+    server.setUrl("http://localhost:8080");
+    server.setDescription("Production server");
+
+    return new OpenAPI()
+        .info(this.getApiInfo())
+        .servers(List.of(server));
   }
 
   private Info getApiInfo() {
