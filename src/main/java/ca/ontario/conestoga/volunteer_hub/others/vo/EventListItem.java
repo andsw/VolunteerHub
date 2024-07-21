@@ -9,15 +9,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ActivityListItem {
+public class EventListItem {
   private int id;
   private String title;
   private String subtitle;
   private String requiredSkillTags;
-  private String hostId;
+  private String organizationId;
+  private String organizationName;
   private String venue;
-  private Date activityStartTime;
-  private Date activityEndTime;
+  private Date eventStartTime;
+  private Date eventEndTime;
   private Date lastEditTime;
   private Date createTime;
   private Integer likesNum;
