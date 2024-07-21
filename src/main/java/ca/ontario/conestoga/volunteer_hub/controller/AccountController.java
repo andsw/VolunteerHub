@@ -1,6 +1,6 @@
 package ca.ontario.conestoga.volunteer_hub.controller;
 
-import ca.ontario.conestoga.volunteer_hub.dto.NewAccount;
+import ca.ontario.conestoga.volunteer_hub.others.dto.NewAccount;
 import ca.ontario.conestoga.volunteer_hub.entity.Account;
 import ca.ontario.conestoga.volunteer_hub.model.Result;
 import ca.ontario.conestoga.volunteer_hub.service.AccountService;
@@ -10,8 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
 
 @RestController
 @RequestMapping("/account")

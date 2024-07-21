@@ -1,4 +1,4 @@
-package ca.ontario.conestoga.volunteer_hub.dto;
+package ca.ontario.conestoga.volunteer_hub.others.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
