@@ -29,7 +29,7 @@ public class SwaggerConfiguration {
   @Bean
   public OpenAPI openAPIProd() {
     Server server = new Server();
-    server.setUrl("http://localhost:8080");
+    server.setUrl("https://volunteer-hub-exnzolcstq-uc.a.run.app");
     server.setDescription("Production server");
 
     return new OpenAPI()
