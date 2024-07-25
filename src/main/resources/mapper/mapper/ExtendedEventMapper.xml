@@ -16,4 +16,80 @@
       where a.host_id = #{organizationId}
     </if>
   </select>
+
+  <resultMap id="EventDetailMap" type="ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO">
+    <id property="id" column="event_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <result property="title" column="title" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="subtitle" column="subtitle" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="descImgLinks" column="desc_img_links" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="description" column="description" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="requiredSkillTags" column="required_skill_tags" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="organizationId" column="organization_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <result property="venue" column="venue" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="eventStartTime" column="event_start_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    <result property="eventEndTime" column="event_end_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    <result property="lastEditTime" column="last_edit_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    <result property="likesNum" column="likes_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <result property="collectionsNum" column="collections_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <result property="reviewsNum" column="reviews_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    <result property="reviewsJson" column="reviews_json" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    <result property="joinedVolunteerNum" column="joinedVolunteerNum" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+
+    <association property="organization" javaType="ca.ontario.conestoga.volunteer_hub.others.vo.OrganizationVO">
+        <id property="id" column="org_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="name" column="org_name" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="logoUrl" column="logo_url" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="phone" column="org_phone" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="email" column="org_email" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="officialSiteLink" column="official_site_link" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="address" column="org_address" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="city" column="org_city" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="province" column="org_province" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="country" column="org_country" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="postcode" column="org_postcode" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    </association>
+
+    <collection property="positions" ofType="ca.ontario.conestoga.volunteer_hub.others.vo.PositionVO">
+        <id property="id" column="pos_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="name" column="pos_name" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="minAge" column="min_age" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="maxAge" column="max_age" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="idealFor" column="ideal_for" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="contactName" column="contact_name" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="contactEmail" column="contact_email" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="eventId" column="event_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="recruitNum" column="recruit_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="trainingDetail" column="training_detail" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="workingCondition" column="working_condition" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+        <result property="accessibility" column="accessibility" jdbcType="NVARCHAR" javaType="java.lang.String"/>
+    </collection>
+  </resultMap>
+
+
+  <select id="getEventDetailById" resultMap="EventDetailMap">
+      SELECT
+          e.id AS event_id, e.title, e.subtitle, e.desc_img_links, e.description,
+          e.required_skill_tags, e.organization_id, e.venue, e.event_start_time,
+          e.event_end_time, e.last_edit_time, e.create_time, e.likes_num,
+          e.collections_num, e.reviews_num, e.reviews_json,
+          o.id AS org_id, o.name AS org_name, o.logo_url, o.phone AS org_phone,
+          o.email AS org_email, o.official_site_link, o.address AS org_address,
+          o.city AS org_city, o.province AS org_province, o.country AS org_country,
+          o.postcode AS org_postcode,
+          p.id AS pos_id, p.name AS pos_name, p.min_age, p.max_age, p.ideal_for,
+          p.contact_name, p.contact_email, p.recruit_num, p.training_detail,
+          p.working_condition, p.accessibility, ISNULL(vn.vn_num, 0) as joinedVolunteerNum
+      FROM
+          event e
+      LEFT JOIN
+          organization o ON e.organization_id = o.id
+      LEFT JOIN
+          position p ON e.id = p.event_id
+      left join (select event_id, count(*) as vn_num
+                 from participation_record pr
+                 group by event_id) vn on vn.event_id = e.id
+      WHERE
+          e.id = #{id}
+  </select>
 </mapper>

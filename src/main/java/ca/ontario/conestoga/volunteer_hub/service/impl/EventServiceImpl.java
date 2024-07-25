@@ -4,6 +4,7 @@ import ca.ontario.conestoga.volunteer_hub.entity.Event;
 import ca.ontario.conestoga.volunteer_hub.entity.EventExample;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedEventMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.ParticipationRecordMapper;
+import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
 import ca.ontario.conestoga.volunteer_hub.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,10 @@ public class EventServiceImpl implements EventService {
   @Override
   public List<EventListItem> getEventListByHostId(Integer organizationId) {
     return eventMapper.getEventsWithVolunteerNum(organizationId);
+  }
+
+  @Override
+  public EventDetailVO getEventDetailById(Integer id) {
+    return eventMapper.getEventDetailById(id);
   }
 }

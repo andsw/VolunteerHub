@@ -2,6 +2,7 @@ package ca.ontario.conestoga.volunteer_hub.controller;
 
 import ca.ontario.conestoga.volunteer_hub.model.Result;
 import ca.ontario.conestoga.volunteer_hub.entity.Event;
+import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
 import ca.ontario.conestoga.volunteer_hub.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class EventController {
   }
 
   @GetMapping("/")
-  public Result<List<Event>> getAllVolunteerEvents() {
+  public Result<List<Event>> getAllEvents() {
     List<Event> volunteerEvents = eventService.getAllEvents();
     return Result.success(volunteerEvents);
   }
@@ -58,5 +59,10 @@ public class EventController {
   @GetMapping("/backend")
   public Result<List<EventListItem>> listEvents(@RequestParam(required = false) Integer hostId) {
     return Result.success(eventService.getEventListByHostId(hostId));
+  }
+
+  @GetMapping("/{id}/detail")
+  public Result<EventDetailVO> getEventDetail(@PathVariable Integer id) {
+    return Result.success(eventService.getEventDetailById(id));
   }
 }

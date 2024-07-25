@@ -60,6 +60,8 @@ CREATE TABLE volunteer_hub.dbo.position
   ideal_for NVARCHAR(255) NOT NULL DEFAULT 'individual',
   contact_name NVARCHAR(255),
   contact_email NVARCHAR(255),
+  application_start_time DATETIME,
+  application_end_time DATETIME,
   event_id INT NOT NULL,
   recruit_num INT NOT NULL DEFAULT(1),
   training_detail NVARCHAR(255) NOT NULL DEFAULT 'None',
@@ -67,6 +69,12 @@ CREATE TABLE volunteer_hub.dbo.position
   accessibility NVARCHAR(255) NOT NULL,
 )
 GO
+alter table dbo.position
+    add application_available_time DATETIME default CURRENT_TIMESTAMP not null
+go
+alter table dbo.position
+    add application_deadline DATETIME default DATEADD(DAY, 10, GETDATE()) not null
+go
 
 CREATE TABLE volunteer_hub.dbo.event (
   id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -74,7 +82,7 @@ CREATE TABLE volunteer_hub.dbo.event (
   subtitle NVARCHAR(255),
 -- comma separates multiple links
   desc_img_links NVARCHAR(2048),
-  description NVARCHAR(255) NOT NULL,
+  description NVARCHAR(1024) NOT NULL,
 -- separated by comma
   required_skill_tags NVARCHAR(255),
   organization_id INT NOT NULL,
