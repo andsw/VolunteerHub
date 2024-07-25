@@ -12,8 +12,8 @@
                    group by event_id) vn
         on vn.event_id = a.id
         left join organization o on a.organization_id = o.id
-    <if test="host_id != null">
-      where a.host_id = #{organizationId}
+    <if test="organizationId != null">
+      where a.organization_id = #{organizationId}
     </if>
   </select>
 

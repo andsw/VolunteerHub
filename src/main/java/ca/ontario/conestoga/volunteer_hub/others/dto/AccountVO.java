@@ -16,6 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class AccountVO {
     private String accountType;
+    private Integer volunteerId;
     private String firstName;
     private String lastName;
     private String email;
@@ -34,6 +35,7 @@ public class AccountVO {
     private String skills;
     private String academicCertificate;
     private String resumeLink;
+    private Integer organizationId;
     private String name; // For organization name
     private String logoUrl;
     private String officialSiteLink;
@@ -89,6 +91,7 @@ public class AccountVO {
     public static AccountVO org2AccountVO(Organization organization, Account account) {
         AccountVO vo = new AccountVO();
         if (organization != null) {
+            vo.setOrganizationId(organization.getId());
             vo.setName(organization.getName());
             vo.setLogoUrl(organization.getLogoUrl());
             vo.setEmail(organization.getEmail());
@@ -108,6 +111,7 @@ public class AccountVO {
     public static AccountVO vol2AccountVO(Volunteer volunteer, Account account) {
         AccountVO vo = new AccountVO();
         if (volunteer != null) {
+            vo.setVolunteerId(volunteer.getId());
             vo.setFirstName(volunteer.getFirstName());
             vo.setLastName(volunteer.getLastName());
             vo.setEmail(volunteer.getEmail());

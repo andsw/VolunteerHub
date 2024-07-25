@@ -12,7 +12,7 @@ public interface EventService {
   void saveEvent(Event Event);
   void updateEvent(Event Event);
   void deleteEvent(Integer id);
-  List<EventListItem> getEventListByHostId(Integer organizationId);
+  List<EventListItem> getEventListByOrgId(Integer organizationId);
 
   EventDetailVO getEventDetailById(Integer id);
 }

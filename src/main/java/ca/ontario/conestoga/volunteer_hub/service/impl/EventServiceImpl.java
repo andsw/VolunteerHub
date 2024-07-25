@@ -10,6 +10,7 @@ import ca.ontario.conestoga.volunteer_hub.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -34,13 +35,16 @@ public class EventServiceImpl implements EventService {
   }
 
   @Override
-  public void saveEvent(Event Event) {
-    eventMapper.insert(Event);
+  public void saveEvent(Event event) {
+    event.setCreateTime(new Date());
+    event.setLastEditTime(new Date());
+    event.setReviewsJson("[]");
+    eventMapper.insertSelective(event);
   }
 
   @Override
-  public void updateEvent(Event Event) {
-    eventMapper.updateByPrimaryKey(Event);
+  public void updateEvent(Event event) {
+    eventMapper.updateByPrimaryKey(event);
   }
 
   @Override
@@ -49,7 +53,7 @@ public class EventServiceImpl implements EventService {
   }
 
   @Override
-  public List<EventListItem> getEventListByHostId(Integer organizationId) {
+  public List<EventListItem> getEventListByOrgId(Integer organizationId) {
     return eventMapper.getEventsWithVolunteerNum(organizationId);
   }
 

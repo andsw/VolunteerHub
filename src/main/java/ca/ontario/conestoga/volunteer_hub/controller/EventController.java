@@ -37,15 +37,15 @@ public class EventController {
   }
 
   @PostMapping("/")
-  public Result<Void> createEvent(@RequestBody Event Event) {
-    eventService.saveEvent(Event);
+  public Result<Void> createEvent(@RequestBody Event event) {
+    eventService.saveEvent(event);
     return Result.success();
   }
 
   @PutMapping("/{id}")
-  public Result<Void> updateEvent(@PathVariable Integer id, @RequestBody Event Event) {
-    Event.setId(id);
-    eventService.updateEvent(Event);
+  public Result<Void> updateEvent(@PathVariable Integer id, @RequestBody Event event) {
+    event.setId(id);
+    eventService.updateEvent(event);
     return Result.success();
   }
 
@@ -57,8 +57,8 @@ public class EventController {
 
 //  ---- interfaces above are all only about the single table
   @GetMapping("/backend")
-  public Result<List<EventListItem>> listEvents(@RequestParam(required = false) Integer hostId) {
-    return Result.success(eventService.getEventListByHostId(hostId));
+  public Result<List<EventListItem>> listEvents(@RequestParam(required = false) Integer orgId) {
+    return Result.success(eventService.getEventListByOrgId(orgId));
   }
 
   @GetMapping("/{id}/detail")

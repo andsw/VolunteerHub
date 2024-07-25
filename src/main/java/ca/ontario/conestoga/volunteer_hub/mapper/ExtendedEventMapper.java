@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface ExtendedEventMapper extends EventMapper {
-  List<EventListItem> getEventsWithVolunteerNum(Integer hostId);
+  List<EventListItem> getEventsWithVolunteerNum(Integer organizationId);
 
   EventDetailVO getEventDetailById(Integer id);
 }
