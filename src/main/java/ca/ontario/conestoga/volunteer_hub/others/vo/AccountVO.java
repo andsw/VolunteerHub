@@ -1,4 +1,4 @@
-package ca.ontario.conestoga.volunteer_hub.others.dto;
+package ca.ontario.conestoga.volunteer_hub.others.vo;
 
 import ca.ontario.conestoga.volunteer_hub.entity.Account;
 import ca.ontario.conestoga.volunteer_hub.entity.Organization;

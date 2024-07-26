@@ -4,7 +4,7 @@ import ca.ontario.conestoga.volunteer_hub.entity.*;
 import ca.ontario.conestoga.volunteer_hub.mapper.AccountMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.OrganizationMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.VolunteerMapper;
-import ca.ontario.conestoga.volunteer_hub.others.dto.AccountVO;
+import ca.ontario.conestoga.volunteer_hub.others.vo.AccountVO;
 import ca.ontario.conestoga.volunteer_hub.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

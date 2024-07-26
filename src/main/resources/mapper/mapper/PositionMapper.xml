@@ -15,6 +15,9 @@
       <arg column="training_detail" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="working_condition" javaType="java.lang.String" jdbcType="NVARCHAR" />
       <arg column="accessibility" javaType="java.lang.String" jdbcType="NVARCHAR" />
+      <arg column="description" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="application_available_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="application_deadline" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -77,7 +80,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, name, min_age, max_age, ideal_for, contact_name, contact_email, event_id, recruit_num, 
-    training_detail, working_condition, accessibility
+    training_detail, working_condition, accessibility, description, application_available_time, 
+    application_deadline
   </sql>
   <select id="selectByExample" parameterType="ca.ontario.conestoga.volunteer_hub.entity.PositionExample" resultMap="BaseResultMap">
     select
@@ -113,13 +117,15 @@
     insert into position (id, name, min_age, 
       max_age, ideal_for, contact_name, 
       contact_email, event_id, recruit_num, 
-      training_detail, working_condition, accessibility
-      )
+      training_detail, working_condition, accessibility, 
+      description, application_available_time, 
+      application_deadline)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=NVARCHAR}, #{minAge,jdbcType=INTEGER}, 
       #{maxAge,jdbcType=INTEGER}, #{idealFor,jdbcType=NVARCHAR}, #{contactName,jdbcType=NVARCHAR}, 
       #{contactEmail,jdbcType=NVARCHAR}, #{eventId,jdbcType=INTEGER}, #{recruitNum,jdbcType=INTEGER}, 
-      #{trainingDetail,jdbcType=NVARCHAR}, #{workingCondition,jdbcType=NVARCHAR}, #{accessibility,jdbcType=NVARCHAR}
-      )
+      #{trainingDetail,jdbcType=NVARCHAR}, #{workingCondition,jdbcType=NVARCHAR}, #{accessibility,jdbcType=NVARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{applicationAvailableTime,jdbcType=TIMESTAMP}, 
+      #{applicationDeadline,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="ca.ontario.conestoga.volunteer_hub.entity.Position">
     insert into position
@@ -160,6 +166,15 @@
       <if test="accessibility != null">
         accessibility,
       </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="applicationAvailableTime != null">
+        application_available_time,
+      </if>
+      <if test="applicationDeadline != null">
+        application_deadline,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -197,6 +212,15 @@
       </if>
       <if test="accessibility != null">
         #{accessibility,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationAvailableTime != null">
+        #{applicationAvailableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applicationDeadline != null">
+        #{applicationDeadline,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -245,6 +269,15 @@
       <if test="record.accessibility != null">
         accessibility = #{record.accessibility,jdbcType=NVARCHAR},
       </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applicationAvailableTime != null">
+        application_available_time = #{record.applicationAvailableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.applicationDeadline != null">
+        application_deadline = #{record.applicationDeadline,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -263,7 +296,10 @@
       recruit_num = #{record.recruitNum,jdbcType=INTEGER},
       training_detail = #{record.trainingDetail,jdbcType=NVARCHAR},
       working_condition = #{record.workingCondition,jdbcType=NVARCHAR},
-      accessibility = #{record.accessibility,jdbcType=NVARCHAR}
+      accessibility = #{record.accessibility,jdbcType=NVARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      application_available_time = #{record.applicationAvailableTime,jdbcType=TIMESTAMP},
+      application_deadline = #{record.applicationDeadline,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -304,6 +340,15 @@
       <if test="accessibility != null">
         accessibility = #{accessibility,jdbcType=NVARCHAR},
       </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationAvailableTime != null">
+        application_available_time = #{applicationAvailableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applicationDeadline != null">
+        application_deadline = #{applicationDeadline,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -319,7 +364,10 @@
       recruit_num = #{recruitNum,jdbcType=INTEGER},
       training_detail = #{trainingDetail,jdbcType=NVARCHAR},
       working_condition = #{workingCondition,jdbcType=NVARCHAR},
-      accessibility = #{accessibility,jdbcType=NVARCHAR}
+      accessibility = #{accessibility,jdbcType=NVARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      application_available_time = #{applicationAvailableTime,jdbcType=TIMESTAMP},
+      application_deadline = #{applicationDeadline,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

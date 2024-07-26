@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ca.ontario.conestoga.volunteer_hub.mapper.ExtendedPositionMapper">
+<!-- Define result mappings for PositionVO with nested objects -->
+    <resultMap id="PositionResultMap" type="ca.ontario.conestoga.volunteer_hub.others.vo.PositionVO">
+        <!-- Position fields -->
+        <id property="id" column="p_id"/>
+        <result property="name" column="p_name"/>
+        <result property="minAge" column="p_min_age"/>
+        <result property="maxAge" column="p_max_age"/>
+        <result property="idealFor" column="p_ideal_for"/>
+        <result property="contactName" column="p_contact_name"/>
+        <result property="contactEmail" column="p_contact_email"/>
+        <result property="eventId" column="p_event_id"/>
+        <result property="recruitNum" column="p_recruit_num"/>
+        <result property="trainingDetail" column="p_training_detail"/>
+        <result property="workingCondition" column="p_working_condition"/>
+        <result property="accessibility" column="p_accessibility"/>
+        <result property="description" column="p_description"/>
+        <result property="applicationAvailableTime" column="p_application_available_time"/>
+        <result property="applicationDeadline" column="p_application_deadline"/>
+        <!-- Recruited number -->
+        <result property="recruitedNum" column="recruitedNum"/>
+
+        <!-- Event fields -->
+        <association property="event" javaType="ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO">
+            <id property="id" column="e_id"/>
+            <result property="title" column="e_title"/>
+            <result property="subtitle" column="e_subtitle"/>
+            <result property="descImgLinks" column="e_desc_img_links"/>
+            <result property="description" column="e_description"/>
+            <result property="requiredSkillTags" column="e_required_skill_tags"/>
+            <result property="venue" column="e_venue"/>
+            <result property="eventStartTime" column="e_event_start_time"/>
+            <result property="eventEndTime" column="e_event_end_time"/>
+            <result property="lastEditTime" column="e_last_edit_time"/>
+            <result property="createTime" column="e_create_time"/>
+            <result property="likesNum" column="e_likes_num"/>
+            <result property="collectionsNum" column="e_collections_num"/>
+            <result property="reviewsNum" column="e_reviews_num"/>
+            <result property="reviewsJson" column="e_reviews_json"/>
+        </association>
+
+        <!-- Organization fields -->
+        <association property="organization" javaType="ca.ontario.conestoga.volunteer_hub.others.vo.OrganizationVO">
+            <id property="id" column="o_id"/>
+            <result property="name" column="o_name"/>
+            <result property="logoUrl" column="o_logo_url"/>
+            <result property="phone" column="o_phone"/>
+            <result property="email" column="o_email"/>
+            <result property="officialSiteLink" column="o_official_site_link"/>
+            <result property="address" column="o_address"/>
+            <result property="city" column="o_city"/>
+            <result property="province" column="o_province"/>
+            <result property="country" column="o_country"/>
+            <result property="postcode" column="o_postcode"/>
+            <result property="accountId" column="o_account_id"/>
+        </association>
+    </resultMap>
+
+
+  <select id="getPositionsByOrgId" resultType="ca.ontario.conestoga.volunteer_hub.others.vo.PositionListItem">
+    select p.id id, p.name name, e.id eventId, e.title eventName,
+           o.id organizationId, o.name organizationName, o.logo_url logoUrl,
+           p.recruit_num recruitmentNum, pr.recruitedNum recruitedNum
+    from position p
+             left join event e on e.id = p.event_id
+             left join organization o on o.id = e.organization_id
+             left join (select position_id, count(*) as recruitedNum
+                        from participation_record r
+                        group by r.position_id) pr on pr.position_id = p.id
+    <if test="orgId!=null">
+      where o.id = #{orgId}
+    </if>
+  </select>
+
+    <!-- Query to select PositionVO based on positionId -->
+    <select id="getPositionDetailById" resultMap="PositionResultMap">
+        SELECT
+            p.id AS p_id,
+            p.name AS p_name,
+            p.min_age AS p_min_age,
+            p.max_age AS p_max_age,
+            p.ideal_for AS p_ideal_for,
+            p.contact_name AS p_contact_name,
+            p.contact_email AS p_contact_email,
+            p.event_id AS p_event_id,
+            p.recruit_num AS p_recruit_num,
+            p.training_detail AS p_training_detail,
+            p.working_condition AS p_working_condition,
+            p.accessibility AS p_accessibility,
+            p.description AS p_description,
+            p.application_available_time AS p_application_available_time,
+            p.application_deadline AS p_application_deadline,
+
+            e.id AS e_id,
+            e.title AS e_title,
+            e.subtitle AS e_subtitle,
+            e.desc_img_links AS e_desc_img_links,
+            e.description AS e_description,
+            e.required_skill_tags AS e_required_skill_tags,
+            e.venue AS e_venue,
+            e.event_start_time AS e_event_start_time,
+            e.event_end_time AS e_event_end_time,
+            e.last_edit_time AS e_last_edit_time,
+            e.create_time AS e_create_time,
+            e.likes_num AS e_likes_num,
+            e.collections_num AS e_collections_num,
+            e.reviews_num AS e_reviews_num,
+            e.reviews_json AS e_reviews_json,
+
+            o.id AS o_id,
+            o.name AS o_name,
+            o.logo_url AS o_logo_url,
+            o.phone AS o_phone,
+            o.email AS o_email,
+            o.official_site_link AS o_official_site_link,
+            o.address AS o_address,
+            o.city AS o_city,
+            o.province AS o_province,
+            o.country AS o_country,
+            o.postcode AS o_postcode,
+            o.account_id AS o_account_id,
+
+            pr.recruitedNum AS recruitedNum
+        FROM dbo.position p
+        LEFT JOIN dbo.event e ON e.id = p.event_id
+        LEFT JOIN dbo.organization o ON o.id = e.organization_id
+        LEFT JOIN (
+            SELECT position_id, COUNT(*) AS recruitedNum
+            FROM dbo.participation_record r
+            GROUP BY r.position_id
+        ) pr ON pr.position_id = p.id
+        WHERE p.id = #{id}
+    </select>
+</mapper>

@@ -1,6 +1,7 @@
 package ca.ontario.conestoga.volunteer_hub.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PositionExample {
@@ -891,6 +892,196 @@ public class PositionExample {
 
         public Criteria andAccessibilityNotBetween(String value1, String value2) {
             addCriterion("accessibility not between", value1, value2, "accessibility");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("description <>", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThanOrEqualTo(String value) {
+            addCriterion("description <=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLike(String value) {
+            addCriterion("description like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotLike(String value) {
+            addCriterion("description not like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeIsNull() {
+            addCriterion("application_available_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeIsNotNull() {
+            addCriterion("application_available_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeEqualTo(Date value) {
+            addCriterion("application_available_time =", value, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeNotEqualTo(Date value) {
+            addCriterion("application_available_time <>", value, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeGreaterThan(Date value) {
+            addCriterion("application_available_time >", value, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("application_available_time >=", value, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeLessThan(Date value) {
+            addCriterion("application_available_time <", value, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeLessThanOrEqualTo(Date value) {
+            addCriterion("application_available_time <=", value, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeIn(List<Date> values) {
+            addCriterion("application_available_time in", values, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeNotIn(List<Date> values) {
+            addCriterion("application_available_time not in", values, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeBetween(Date value1, Date value2) {
+            addCriterion("application_available_time between", value1, value2, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationAvailableTimeNotBetween(Date value1, Date value2) {
+            addCriterion("application_available_time not between", value1, value2, "applicationAvailableTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineIsNull() {
+            addCriterion("application_deadline is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineIsNotNull() {
+            addCriterion("application_deadline is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineEqualTo(Date value) {
+            addCriterion("application_deadline =", value, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineNotEqualTo(Date value) {
+            addCriterion("application_deadline <>", value, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineGreaterThan(Date value) {
+            addCriterion("application_deadline >", value, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineGreaterThanOrEqualTo(Date value) {
+            addCriterion("application_deadline >=", value, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineLessThan(Date value) {
+            addCriterion("application_deadline <", value, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineLessThanOrEqualTo(Date value) {
+            addCriterion("application_deadline <=", value, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineIn(List<Date> values) {
+            addCriterion("application_deadline in", values, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineNotIn(List<Date> values) {
+            addCriterion("application_deadline not in", values, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineBetween(Date value1, Date value2) {
+            addCriterion("application_deadline between", value1, value2, "applicationDeadline");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicationDeadlineNotBetween(Date value1, Date value2) {
+            addCriterion("application_deadline not between", value1, value2, "applicationDeadline");
             return (Criteria) this;
         }
     }

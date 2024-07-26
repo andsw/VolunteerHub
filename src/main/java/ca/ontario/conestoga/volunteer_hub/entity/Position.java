@@ -1,5 +1,7 @@
 package ca.ontario.conestoga.volunteer_hub.entity;
 
+import java.util.Date;
+
 public class Position {
     private Integer id;
 
@@ -25,7 +27,13 @@ public class Position {
 
     private String accessibility;
 
-    public Position(Integer id, String name, Integer minAge, Integer maxAge, String idealFor, String contactName, String contactEmail, Integer eventId, Integer recruitNum, String trainingDetail, String workingCondition, String accessibility) {
+    private String description;
+
+    private Date applicationAvailableTime;
+
+    private Date applicationDeadline;
+
+    public Position(Integer id, String name, Integer minAge, Integer maxAge, String idealFor, String contactName, String contactEmail, Integer eventId, Integer recruitNum, String trainingDetail, String workingCondition, String accessibility, String description, Date applicationAvailableTime, Date applicationDeadline) {
         this.id = id;
         this.name = name;
         this.minAge = minAge;
@@ -38,6 +46,9 @@ public class Position {
         this.trainingDetail = trainingDetail;
         this.workingCondition = workingCondition;
         this.accessibility = accessibility;
+        this.description = description;
+        this.applicationAvailableTime = applicationAvailableTime;
+        this.applicationDeadline = applicationDeadline;
     }
 
     public Position() {
@@ -138,5 +149,29 @@ public class Position {
 
     public void setAccessibility(String accessibility) {
         this.accessibility = accessibility == null ? null : accessibility.trim();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
+    public Date getApplicationAvailableTime() {
+        return applicationAvailableTime;
+    }
+
+    public void setApplicationAvailableTime(Date applicationAvailableTime) {
+        this.applicationAvailableTime = applicationAvailableTime;
+    }
+
+    public Date getApplicationDeadline() {
+        return applicationDeadline;
+    }
+
+    public void setApplicationDeadline(Date applicationDeadline) {
+        this.applicationDeadline = applicationDeadline;
     }
 }

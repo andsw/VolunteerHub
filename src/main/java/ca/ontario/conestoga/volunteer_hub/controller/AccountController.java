@@ -1,8 +1,7 @@
 package ca.ontario.conestoga.volunteer_hub.controller;
 
-import ca.ontario.conestoga.volunteer_hub.entity.Account;
 import ca.ontario.conestoga.volunteer_hub.model.Result;
-import ca.ontario.conestoga.volunteer_hub.others.dto.AccountVO;
+import ca.ontario.conestoga.volunteer_hub.others.vo.AccountVO;
 import ca.ontario.conestoga.volunteer_hub.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

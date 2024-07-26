@@ -2,6 +2,8 @@ package ca.ontario.conestoga.volunteer_hub.others.vo;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,8 +19,13 @@ public class PositionVO {
   private String contactEmail;
   private Integer eventId;
   private Integer recruitNum;
+  private Integer recruitedNum;
   private String trainingDetail;
   private String workingCondition;
   private String accessibility;
-  private EventDetailVO eventDetailVO;
+  private String description;
+  private Date applicationAvailableTime;
+  private Date applicationDeadline;
+  private EventDetailVO event;
+  private OrganizationVO organization;
 }
