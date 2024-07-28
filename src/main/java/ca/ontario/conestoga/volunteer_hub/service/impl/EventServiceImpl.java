@@ -49,6 +49,7 @@ public class EventServiceImpl implements EventService {
 
   @Override
   public void deleteEvent(Integer id) {
+    // todo: delete the corresponding positions and send notification to vols
     eventMapper.deleteByPrimaryKey(id);
   }
 

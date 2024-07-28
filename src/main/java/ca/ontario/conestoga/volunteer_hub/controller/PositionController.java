@@ -20,7 +20,7 @@ public class PositionController {
   }
 
   @GetMapping
-  public Result<List<PositionListItem>> listPositions(@RequestParam() Integer orgId) {
+  public Result<List<PositionListItem>> listPositions(@RequestParam(required = false) Integer orgId) {
     return Result.success(positionService.getPositionListByOrgId(orgId));
   }
 

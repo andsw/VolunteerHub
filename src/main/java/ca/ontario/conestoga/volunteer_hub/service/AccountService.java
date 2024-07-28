@@ -9,4 +9,6 @@ public interface AccountService {
   Integer saveAccount(AccountVO account);
 
   AccountVO getAccount(String email);
+
+  AccountVO getAccount(Integer id);
 }

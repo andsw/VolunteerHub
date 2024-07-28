@@ -57,7 +57,8 @@ public class AccountServiceImpl implements AccountService {
       }
       return idx;
     } else {
-      if (!StringUtils.equals(accountVO.getAccountType(), existAccount.getAccountType())){
+      if (StringUtils.isNotEmpty(existAccount.getAccountType())
+          && !StringUtils.equals(accountVO.getAccountType(), existAccount.getAccountType())){
         throw new InvalidParameterException("account type cannot be changed!");
       }
       if (StringUtils.equals(accountVO.getAccountType(), VOLUNTEER.toString())) {
@@ -80,6 +81,16 @@ public class AccountServiceImpl implements AccountService {
     AccountExample example = new AccountExample();
     example.createCriteria().andUsernameEqualTo(email);
     Account account = firstElement(accountMapper.selectByExample(example));
+    return getDetailedInfo(account);
+  }
+
+  @Override
+  public AccountVO getAccount(Integer id) {
+    Account account = accountMapper.selectByPrimaryKey(id);
+    return getDetailedInfo(account);
+  }
+
+  private AccountVO getDetailedInfo(Account account) {
     if (account != null) {
       if (StringUtils.equals(account.getAccountType(), VOLUNTEER.toString())) {
         VolunteerExample vExample = new VolunteerExample();
