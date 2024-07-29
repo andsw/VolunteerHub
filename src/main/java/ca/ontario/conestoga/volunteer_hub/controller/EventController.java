@@ -2,6 +2,7 @@ package ca.ontario.conestoga.volunteer_hub.controller;
 
 import ca.ontario.conestoga.volunteer_hub.model.Result;
 import ca.ontario.conestoga.volunteer_hub.entity.Event;
+import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
 import ca.ontario.conestoga.volunteer_hub.service.EventService;
@@ -38,20 +39,32 @@ public class EventController {
 
   @PostMapping("/")
   public Result<Void> createEvent(@RequestBody Event event) {
-    eventService.saveEvent(event);
+    try {
+      eventService.saveEvent(event);
+    } catch (HubException e) {
+      return Result.error(e.getMessage());
+    }
     return Result.success();
   }
 
   @PutMapping("/{id}")
   public Result<Void> updateEvent(@PathVariable Integer id, @RequestBody Event event) {
     event.setId(id);
-    eventService.updateEvent(event);
+    try {
+      eventService.updateEvent(event);
+    } catch (HubException e) {
+      return Result.error(e.getMessage());
+    }
     return Result.success();
   }
 
   @DeleteMapping("/{id}")
   public Result<Void> deleteEvent(@PathVariable Integer id) {
-    eventService.deleteEvent(id);
+    try {
+      eventService.deleteEvent(id);
+    } catch (HubException e) {
+      return Result.error(e.getMessage());
+    }
     return Result.success();
   }
 

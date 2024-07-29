@@ -1,6 +1,7 @@
 package ca.ontario.conestoga.volunteer_hub.controller;
 
 import ca.ontario.conestoga.volunteer_hub.model.Result;
+import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.AccountVO;
 import ca.ontario.conestoga.volunteer_hub.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class AccountController {
   public Result<Integer> saveAccount(@RequestBody AccountVO accountVO) {
     try{
       return Result.success(accountService.saveAccount(accountVO));
-    } catch (InvalidParameterException e) {
+    } catch (InvalidParameterException | HubException e) {
       return Result.error(e.getMessage());
     }
   }
