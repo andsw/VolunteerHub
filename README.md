@@ -21,8 +21,8 @@ according to the tables in the sql server.
 6. implement sign in/up, listing activities, present activities' detail info, activity join in features
 
 # Iteration 3
-1. Add MS SQL Server schema creation script.
-2. Get the RunDockerFiles script completely automatic.
+1. Redesign the database schema
+2. Get the RunDockerFiles scripts completely automatic.
 3. Deploy the database on the Google cloud sql
    - configure proxy so that I can connect the cloud sql database use localhost.
    - or add my ip on cloud sql network, to use the public ip connect the database.
@@ -31,4 +31,8 @@ according to the tables in the sql server.
    now we can access website via below urls:
    - homepage: https://volunteer-hub-exnzolcstq-uc.a.run.app
    - api document: https://volunteer-hub-exnzolcstq-uc.a.run.app/swagger-ui/index.html
-6. 
+6. optimized frontend code and design by using react framework, and the material-ui
+7. used firebase authentication for account security
+8. used the firebase realtime database for chatting between volunteers and organizers.
+9. iteration components
+10. unit test
