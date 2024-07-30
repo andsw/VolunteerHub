@@ -28,4 +28,5 @@ public class PositionController {
   public Result<PositionVO> positionDetail(@PathVariable Integer id) {
     return Result.success(positionService.getPositionDetailById(id));
   }
+
 }
