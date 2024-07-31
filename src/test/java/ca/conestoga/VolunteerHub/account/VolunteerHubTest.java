@@ -11,7 +11,7 @@ import ca.ontario.conestoga.volunteer_hub.service.impl.AccountServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AccountValidatorTest {
+public class VolunteerHubTest {
 
     private AccountVO accountVO;
     private Account existingAccount;

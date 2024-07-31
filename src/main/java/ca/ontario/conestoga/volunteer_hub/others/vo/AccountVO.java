@@ -15,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountVO {
+    private Integer id;
     private String accountType;
     private Integer volunteerId;
     private String firstName;
@@ -103,6 +104,7 @@ public class AccountVO {
             vo.setCountry(organization.getCountry());
             vo.setPostcode(organization.getPostcode());
         }
+        vo.setId(account.getId());
         vo.setEmail(account.getUsername());
         vo.setAccountType(account.getAccountType());
         return vo;
@@ -131,6 +133,7 @@ public class AccountVO {
             vo.setAcademicCertificate(volunteer.getAcademicCertificate());
             vo.setResumeLink(volunteer.getResumeLink());
         }
+        vo.setId(account.getId());
         vo.setEmail(account.getUsername());
         vo.setAccountType(account.getAccountType());
         return vo;

@@ -53,7 +53,10 @@
 <!--    <table tableName="volunteer" domainObjectName="Volunteer" enableSelectByPrimaryKey="true" enableSelectByExample="true">-->
 <!--        <columnOverride column="id" javaType="java.lang.Integer"/>-->
 <!--    </table>-->
-    <table tableName="position" domainObjectName="Position"/>
+    <table tableName="position_application" domainObjectName="PositionApplication">
+      <columnOverride column="id" javaType="java.lang.Integer"/>
+    </table>
+<!--    <table tableName="position" domainObjectName="Position"/>-->
 <!--    <table tableName="event" domainObjectName="Event" />-->
 <!--    <table tableName="participation_record" domainObjectName="ParticipationRecord" />-->
 <!--    <table tableName="volunteer_review" domainObjectName="VolunteerReview" />-->
