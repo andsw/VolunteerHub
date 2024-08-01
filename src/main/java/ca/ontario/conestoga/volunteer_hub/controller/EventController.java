@@ -37,16 +37,6 @@ public class EventController {
     return Result.success(volunteerEvents);
   }
 
-  @PostMapping("/")
-  public Result<Void> createEvent(@RequestBody Event event) {
-    try {
-      eventService.saveEvent(event);
-    } catch (HubException e) {
-      return Result.error(e.getMessage());
-    }
-    return Result.success();
-  }
-
   @PutMapping("/{id}")
   public Result<Void> updateEvent(@PathVariable Integer id, @RequestBody Event event) {
     event.setId(id);
@@ -77,5 +67,11 @@ public class EventController {
   @GetMapping("/{id}/detail")
   public Result<EventDetailVO> getEventDetail(@PathVariable Integer id) {
     return Result.success(eventService.getEventDetailById(id));
+  }
+
+  @PostMapping
+  public Result<Void> saveEvent(@RequestBody EventDetailVO event) {
+    eventService.saveEvent(event);
+    return Result.success();
   }
 }

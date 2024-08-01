@@ -16,4 +16,6 @@ public interface EventService {
   List<EventListItem> getEventListByOrgId(Integer organizationId);
 
   EventDetailVO getEventDetailById(Integer id);
+
+  void saveEvent(EventDetailVO event);
 }

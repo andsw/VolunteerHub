@@ -1,5 +1,6 @@
 package ca.ontario.conestoga.volunteer_hub.others.vo;
 
+import ca.ontario.conestoga.volunteer_hub.entity.Position;
 import lombok.*;
 
 import java.util.Date;
@@ -28,4 +29,24 @@ public class PositionVO {
   private Date applicationDeadline;
   private EventDetailVO event;
   private OrganizationVO organization;
+
+  public Position toPosition() {
+    Position position = new Position();
+    position.setId(this.id);
+        position.setName(this.name);
+        position.setMinAge(this.minAge);
+        position.setMaxAge(this.maxAge);
+        position.setIdealFor(this.idealFor);
+        position.setContactName(this.contactName);
+        position.setContactEmail(this.contactEmail);
+        position.setEventId(this.eventId);
+        position.setRecruitNum(this.recruitNum);
+        position.setTrainingDetail(this.trainingDetail);
+        position.setWorkingCondition(this.workingCondition);
+        position.setAccessibility(this.accessibility);
+        position.setDescription(this.description);
+        position.setApplicationAvailableTime(this.applicationAvailableTime);
+        position.setApplicationDeadline(this.applicationDeadline);
+    return position;
+  }
 }

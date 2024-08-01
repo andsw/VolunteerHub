@@ -134,4 +134,21 @@ public class EventServiceImpl implements EventService {
   public EventDetailVO getEventDetailById(Integer id) {
     return eventMapper.getEventDetailById(id);
   }
+
+  @Override
+  public void saveEvent(EventDetailVO event) {
+    Event newEvent = event.toEvent();
+    Date now = new Date();
+    newEvent.setLastEditTime(now);
+    if (event.getId() == null) {
+      newEvent.setCreateTime(now);
+      newEvent.setReviewsJson("[]");
+      newEvent.setCollectionsNum(0);
+      newEvent.setLikesNum(0);
+      newEvent.setReviewsNum(0);
+      eventMapper.insertSelective(newEvent);
+    } else {
+      eventMapper.updateByPrimaryKeySelective(newEvent);
+    }
+  }
 }

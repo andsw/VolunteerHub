@@ -1,6 +1,7 @@
 package ca.ontario.conestoga.volunteer_hub.controller;
 
 import ca.ontario.conestoga.volunteer_hub.model.Result;
+import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.PositionListItem;
 import ca.ontario.conestoga.volunteer_hub.others.vo.PositionVO;
 import ca.ontario.conestoga.volunteer_hub.service.PositionService;
@@ -27,6 +28,16 @@ public class PositionController {
   @GetMapping("/{id}/detail")
   public Result<PositionVO> positionDetail(@PathVariable Integer id) {
     return Result.success(positionService.getPositionDetailById(id));
+  }
+
+  @PostMapping
+  public Result<Void> savePosition(@RequestBody PositionVO vo) {
+    try {
+      positionService.savePosition(vo);
+    } catch (HubException e) {
+      return Result.error(e.getMessage());
+    }
+    return Result.success();
   }
 
 }
