@@ -101,18 +101,15 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="ca.ontario.conestoga.volunteer_hub.entity.Account">
-    insert into account (id, username, avatar_link, 
-      register_time, account_type)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=NVARCHAR}, #{avatarLink,jdbcType=NVARCHAR}, 
-      #{registerTime,jdbcType=TIMESTAMP}, #{accountType,jdbcType=VARCHAR})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="ca.ontario.conestoga.volunteer_hub.entity.Account" useGeneratedKeys="true">
+    insert into account (username, avatar_link, register_time, 
+      account_type)
+    values (#{username,jdbcType=NVARCHAR}, #{avatarLink,jdbcType=NVARCHAR}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{accountType,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="ca.ontario.conestoga.volunteer_hub.entity.Account">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="ca.ontario.conestoga.volunteer_hub.entity.Account" useGeneratedKeys="true">
     insert into account
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
       <if test="username != null">
         username,
       </if>
@@ -127,9 +124,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="username != null">
         #{username,jdbcType=NVARCHAR},
       </if>

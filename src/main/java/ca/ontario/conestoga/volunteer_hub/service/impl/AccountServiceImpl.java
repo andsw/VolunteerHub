@@ -15,8 +15,7 @@ import java.util.Date;
 
 import java.security.InvalidParameterException;
 
-import static ca.ontario.conestoga.volunteer_hub.others.enums.AccountType.ORGANIZATION;
-import static ca.ontario.conestoga.volunteer_hub.others.enums.AccountType.VOLUNTEER;
+import static ca.ontario.conestoga.volunteer_hub.others.enums.AccountType.*;
 import static org.springframework.util.CollectionUtils.firstElement;
 
 @Service
@@ -96,13 +95,13 @@ public class AccountServiceImpl implements AccountService {
     }
 
     // 7. Sex should be 'male', 'female', or 'other'
-    if (accountVO.getSex() != null && !accountVO.getSex().equalsIgnoreCase("male") &&
+    if (isVolunteer(accountVO.getAccountType()) && accountVO.getSex() != null && !accountVO.getSex().equalsIgnoreCase("male") &&
         !accountVO.getSex().equalsIgnoreCase("female") && !accountVO.getSex().equalsIgnoreCase("other")) {
         throw new HubException("Sex must be 'male', 'female', or 'other'.");
     }
 
     // 8. Marital status should be one of 'single', 'married', 'divorced', or 'widowed'
-    if (accountVO.getMaritalStatus() != null &&
+    if (isVolunteer(accountVO.getAccountType()) && accountVO.getMaritalStatus() != null &&
         !accountVO.getMaritalStatus().equalsIgnoreCase("single") &&
         !accountVO.getMaritalStatus().equalsIgnoreCase("married") &&
         !accountVO.getMaritalStatus().equalsIgnoreCase("divorced") &&
@@ -111,7 +110,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     // 9. Occupation status should be one of 'employed', 'unemployed', or 'student'
-    if (accountVO.getOccupationStatus() != null &&
+    if (isVolunteer(accountVO.getAccountType()) && accountVO.getOccupationStatus() != null &&
         !accountVO.getOccupationStatus().equalsIgnoreCase("employed") &&
         !accountVO.getOccupationStatus().equalsIgnoreCase("unemployed") &&
         !accountVO.getOccupationStatus().equalsIgnoreCase("student")) {
@@ -119,7 +118,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     // 10. Date of birth should be in the past
-    if (accountVO.getDob() != null && accountVO.getDob().after(new Date())) {
+    if (isVolunteer(accountVO.getAccountType()) && accountVO.getDob() != null && accountVO.getDob().after(new Date())) {
         throw new HubException("Date of birth must be in the past.");
     }
 }
