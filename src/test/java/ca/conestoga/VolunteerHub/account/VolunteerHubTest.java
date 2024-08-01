@@ -139,7 +139,7 @@ public class VolunteerHubTest {
     }
 
     @Test
-    public void testValidVolunteerAccount() throws HubException {
+    public void testValidVolunteerAccount() {
         accountVO.setAccountType("volunteer");
         accountVO.setFirstName("John");
         accountVO.setLastName("Doe");
@@ -157,7 +157,7 @@ public class VolunteerHubTest {
     }
 
     @Test
-    public void testValidOrganizationAccount() throws HubException {
+    public void testValidOrganizationAccount() {
         accountVO.setAccountType("organization");
         accountVO.setName("OrgName");
         accountVO.setEmail("org@example.com");
@@ -170,7 +170,7 @@ public class VolunteerHubTest {
     }
 
     @Test
-    public void testValidAccountWithAllFieldsEmpty() throws HubException {
+    public void testValidAccountWithAllFieldsEmpty() {
         accountVO.setAccountType("volunteer");
         accountVO.setFirstName("John");
         accountVO.setLastName("Doe");
@@ -179,7 +179,7 @@ public class VolunteerHubTest {
     }
 
     @Test
-    public void testValidAccountWithAllOptionalFieldsFilled() throws HubException {
+    public void testValidAccountWithAllOptionalFieldsFilled() {
         accountVO.setAccountType("volunteer");
         accountVO.setFirstName("John");
         accountVO.setLastName("Doe");

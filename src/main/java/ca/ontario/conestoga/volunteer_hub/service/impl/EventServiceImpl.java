@@ -7,7 +7,6 @@ import ca.ontario.conestoga.volunteer_hub.entity.PositionExample;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedEventMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedPositionMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.OrganizationMapper;
-import ca.ontario.conestoga.volunteer_hub.mapper.ParticipationRecordMapper;
 import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
@@ -78,7 +77,7 @@ public class EventServiceImpl implements EventService {
   }
 
   @Autowired
-  public EventServiceImpl(ExtendedEventMapper eventMapper, ParticipationRecordMapper participationRecordMapper, OrganizationMapper organizationMapper, ExtendedPositionMapper positionMapper) {
+  public EventServiceImpl(ExtendedEventMapper eventMapper, OrganizationMapper organizationMapper, ExtendedPositionMapper positionMapper) {
     this.eventMapper = eventMapper;
     this.organizationMapper = organizationMapper;
     this.positionMapper = positionMapper;
@@ -93,15 +92,6 @@ public class EventServiceImpl implements EventService {
   public List<Event> getAllEvents() {
     EventExample example = new EventExample();
     return eventMapper.selectByExample(example);
-  }
-
-  @Override
-  public void saveEvent(Event event) throws HubException {
-    event.setCreateTime(new Date());
-    event.setLastEditTime(new Date());
-    event.setReviewsJson("[]");
-    validateEventBeforeSaving(event);
-    eventMapper.insertSelective(event);
   }
 
   @Override

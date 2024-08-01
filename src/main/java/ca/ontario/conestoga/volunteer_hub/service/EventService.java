@@ -10,7 +10,7 @@ import java.util.List;
 public interface EventService {
   Event getEventById(Integer id);
   List<Event> getAllEvents();
-  void saveEvent(Event Event) throws HubException;
+
   void updateEvent(Event Event) throws HubException;
   void deleteEvent(Integer id) throws HubException;
   List<EventListItem> getEventListByOrgId(Integer organizationId);

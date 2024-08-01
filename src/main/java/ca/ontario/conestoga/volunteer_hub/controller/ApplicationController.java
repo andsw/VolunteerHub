@@ -1,11 +1,9 @@
 package ca.ontario.conestoga.volunteer_hub.controller;
 
-import ca.ontario.conestoga.volunteer_hub.entity.PositionApplication;
 import ca.ontario.conestoga.volunteer_hub.model.Result;
 import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.PositionApplicationVO;
 import ca.ontario.conestoga.volunteer_hub.service.PositionApplicationService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

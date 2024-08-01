@@ -12,7 +12,6 @@ public class DateUtil {
     Date currentDate = new Date();
     long timeDiff = currentDate.getTime() - dob.getTime();
     long ageInMillis = 31556952000L; // Milliseconds in a year
-    int age = (int) (timeDiff / ageInMillis);
-    return age;
+    return (int) (timeDiff / ageInMillis);
   }
 }
