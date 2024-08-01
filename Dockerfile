@@ -13,7 +13,7 @@ ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 # add proxy so it can connect the database running on the Google Cloud SQL via localhost
 #ENTRYPOINT ["/cloud_sql_proxy", "-instances=circular-unity-429020-n1:us-central1:volunteer-hub-database=tcp:1433", "&", "java", "-Dspring.profiles.active=prod", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-ENTRYPOINT ["sh", "-c", "/usr/local/bin/cloud_sql_proxy -instances=circular-unity-429020-n1:us-central1:volunteer-hub-database=tcp:1433 & java -Dspring.profiles.active=prod -Djava.security.egd=file:/dev/./urandom -jar app.jar"]
+ENTRYPOINT ["sh", "-c", "/usr/local/bin/cloud_sql_proxy -instances=verdant-upgrade-431200-i7:us-central1:volunteer-hub=tcp:1433 & java -Dspring.profiles.active=prod -Djava.security.egd=file:/dev/./urandom -jar app.jar"]
 # Then use below commands deploy this project on the Google Cloud Run.
 # mvn clean package
 # docker build --platform linux/amd64 -t gcr.io/circular-unity-429020-n1/volunteer-hub:1.0 .

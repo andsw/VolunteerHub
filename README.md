@@ -29,8 +29,8 @@ according to the tables in the sql server.
 4. Deploy the project on the Google cloud run 
 5. Google cloud run connect the Google cloud sql successfully
    now we can access website via below urls:
-   - homepage: https://volunteer-hub-exnzolcstq-uc.a.run.app
-   - api document: https://volunteer-hub-exnzolcstq-uc.a.run.app/swagger-ui/index.html
+   - homepage: https://volunteer-hub-i365snazra-uc.a.run.app
+   - api document: https://volunteer-hub-i365snazra-uc.a.run.app/swagger-ui/index.html#/
 6. optimized frontend code and design by using react framework, and the material-ui
 7. used firebase authentication for account security
 8. used the firebase realtime database for chatting between volunteers and organizers.

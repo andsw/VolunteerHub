@@ -12,7 +12,7 @@
     <!-- JDBC Connection Configuration -->
     <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
                     connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=volunteer_hub;encrypt=false;Trusted_Connection=false;MultipleActiveResultSets=true;TrustServerCertificate=True;"
-                    userId="sqlserver"
+                    userId="sa"
                     password="Conestoga1">
     </jdbcConnection>
 
@@ -43,7 +43,7 @@
     </javaClientGenerator>
 
     <!-- Table Configuration -->
-<!--    <table tableName="Test" domainObjectName="Test" />-->
+    <table tableName="Test" domainObjectName="Test" />
 <!--    <table tableName="account" domainObjectName="Account" enableSelectByPrimaryKey="true" enableSelectByExample="true">-->
 <!--        <columnOverride column="id" javaType="java.lang.Integer"/>-->
 <!--    </table>-->
@@ -53,9 +53,9 @@
 <!--    <table tableName="volunteer" domainObjectName="Volunteer" enableSelectByPrimaryKey="true" enableSelectByExample="true">-->
 <!--        <columnOverride column="id" javaType="java.lang.Integer"/>-->
 <!--    </table>-->
-    <table tableName="position_application" domainObjectName="PositionApplication">
-      <columnOverride column="id" javaType="java.lang.Integer"/>
-    </table>
+<!--    <table tableName="position_application" domainObjectName="PositionApplication">-->
+<!--      <columnOverride column="id" javaType="java.lang.Integer"/>-->
+<!--    </table>-->
 <!--    <table tableName="position" domainObjectName="Position"/>-->
 <!--    <table tableName="event" domainObjectName="Event" />-->
 <!--    <table tableName="participation_record" domainObjectName="ParticipationRecord" />-->
