@@ -43,11 +43,11 @@
     </javaClientGenerator>
 
     <!-- Table Configuration -->
-<!--    <table tableName="Test" domainObjectName="Test" />-->
-    <table tableName="account" domainObjectName="Account" enableSelectByPrimaryKey="true" enableSelectByExample="true">
-        <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-        <columnOverride column="id" javaType="java.lang.Integer"/>
-    </table>
+    <table tableName="Test" domainObjectName="Test" />
+<!--    <table tableName="account" domainObjectName="Account" enableSelectByPrimaryKey="true" enableSelectByExample="true">-->
+<!--        <generatedKey column="id" sqlStatement="JDBC" identity="true"/>-->
+<!--        <columnOverride column="id" javaType="java.lang.Integer"/>-->
+<!--    </table>-->
 <!--    <table tableName="organization" domainObjectName="Organization" enableSelectByPrimaryKey="true" enableSelectByExample="true">-->
 <!--        <columnOverride column="id" javaType="java.lang.Integer"/>-->
 <!--    </table>-->

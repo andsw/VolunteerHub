@@ -17,7 +17,11 @@ docker push gcr.io/verdant-upgrade-431200-i7/volunteer-hub:1.0
 
 # Deploy the Docker image to Google Cloud Run
 echo "Deploying Docker image to Google Cloud Run..."
-gcloud run deploy --image gcr.io/verdant-upgrade-431200-i7/volunteer-hub:1.0 --platform managedhttps://volunteer-hub-i365snazra-uc.a.run.app/
+gcloud run deploy volunteer-hub-service \
+                  --image gcr.io/verdant-upgrade-431200-i7/volunteer-hub:1.0 \
+                  --platform managed \
+                  --region us-central1 \
+                  --project verdant-upgrade-431200-i7
 
 # Print a message indicating the end of the deployment process
 echo "Deployment process completed."

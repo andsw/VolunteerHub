@@ -204,4 +204,5 @@
       account_type = #{accountType,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>
