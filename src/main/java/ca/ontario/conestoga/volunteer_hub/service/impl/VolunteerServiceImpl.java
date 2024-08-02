@@ -19,6 +19,9 @@ import org.springframework.util.CollectionUtils;
 import java.util.Date;
 import java.util.List;
 
+import static ca.ontario.conestoga.volunteer_hub.others.enums.ApplicationStatus.CANCELLED;
+import static ca.ontario.conestoga.volunteer_hub.others.enums.ApplicationStatus.DECLINED;
+
 @Service
 public class VolunteerServiceImpl implements VolunteerService {
 
@@ -46,7 +49,9 @@ public class VolunteerServiceImpl implements VolunteerService {
     PositionApplicationExample example = new PositionApplicationExample();
     example.createCriteria().andVolunteerIdEqualTo(applicant.getId()).andPositionIdEqualTo(position.getId());
     List<PositionApplication> applications = applicationMapper.selectByExample(example);
-    if (CollectionUtils.isEmpty(applications)) {
+    if (CollectionUtils.isEmpty(applications) ||
+        applications.get(0).getStatus().equals(CANCELLED.getStatus()) ||
+        applications.get(0).getStatus().equals(DECLINED.getStatus())) {
       PositionApplication application = new PositionApplication();
       application.setPositionId(dto.getPositionId());
       application.setVolunteerId(dto.getVolunteerId());

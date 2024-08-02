@@ -7,6 +7,7 @@ import ca.ontario.conestoga.volunteer_hub.entity.PositionExample;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedEventMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedPositionMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.OrganizationMapper;
+import ca.ontario.conestoga.volunteer_hub.mapper.ParticipationRecordMapper;
 import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
@@ -140,5 +141,9 @@ public class EventServiceImpl implements EventService {
     } else {
       eventMapper.updateByPrimaryKeySelective(newEvent);
     }
+  }
+
+  public List<EventListItem> getJoinedEventsByVolId(Integer volId) {
+    return null;
   }
 }

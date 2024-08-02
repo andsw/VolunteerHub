@@ -74,4 +74,8 @@ public class EventController {
     eventService.saveEvent(event);
     return Result.success();
   }
+
+  public Result<EventListItem> getVolsJoinedEvents(@RequestParam Integer volunteerId) {
+    return null;
+  }
 }

@@ -79,7 +79,7 @@ public class PositionServiceImpl implements PositionService {
     }
 
     // Check if the position is still vacant
-    if (position.getRecruitNum() <= position.getRecruitedNum()) {
+    if (position.getRecruitedNum() != null && position.getRecruitNum() <= position.getRecruitedNum()) {
       return false;
     }
 
@@ -105,7 +105,7 @@ public class PositionServiceImpl implements PositionService {
     }
 
     // Check if the position is still vacant
-    if (position.getRecruitNum() <= position.getRecruitedNum()) {
+    if (position.getRecruitedNum() != null && position.getRecruitNum() <= position.getRecruitedNum()) {
       throw new HubException("This position is no longer vacant.");
     }
 
