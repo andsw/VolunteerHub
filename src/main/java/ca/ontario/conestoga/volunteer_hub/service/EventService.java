@@ -18,4 +18,6 @@ public interface EventService {
   EventDetailVO getEventDetailById(Integer id);
 
   void saveEvent(EventDetailVO event);
+
+  List<EventListItem> getEventsByIds(List<Integer> ids);
 }

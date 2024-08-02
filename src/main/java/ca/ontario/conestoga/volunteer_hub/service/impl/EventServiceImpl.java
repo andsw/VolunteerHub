@@ -7,7 +7,6 @@ import ca.ontario.conestoga.volunteer_hub.entity.PositionExample;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedEventMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.ExtendedPositionMapper;
 import ca.ontario.conestoga.volunteer_hub.mapper.OrganizationMapper;
-import ca.ontario.conestoga.volunteer_hub.mapper.ParticipationRecordMapper;
 import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
@@ -24,58 +23,6 @@ public class EventServiceImpl implements EventService {
   private final ExtendedEventMapper eventMapper;
   private final OrganizationMapper organizationMapper;
   private final ExtendedPositionMapper positionMapper;
-
-  public void validateEventBeforeSaving(Event event) throws HubException {
-    if (event.getTitle() == null || event.getTitle().trim().isEmpty()) {
-      throw new HubException("Event title cannot be empty.");
-    }
-
-    if (event.getSubtitle() == null || event.getSubtitle().trim().isEmpty()) {
-      throw new HubException("Event subtitle cannot be empty.");
-    }
-
-    if (event.getDescription() == null || event.getDescription().trim().isEmpty()) {
-      throw new HubException("Event description cannot be empty.");
-    }
-
-    if (event.getRequiredSkillTags() == null || event.getRequiredSkillTags().trim().isEmpty()) {
-      throw new HubException("Event required skill tags cannot be empty.");
-    }
-
-    if (event.getOrganizationId() == null) {
-      throw new HubException("Organization ID cannot be null.");
-    }
-
-    // Check if organization ID exists in the database
-    OrganizationExample orgExample = new OrganizationExample();
-    orgExample.createCriteria().andIdEqualTo(event.getOrganizationId());
-    long orgCount = organizationMapper.countByExample(orgExample);
-    if (orgCount == 0) {
-      throw new HubException("Organization ID does not exist.");
-    }
-
-    if (event.getVenue() == null || event.getVenue().trim().isEmpty()) {
-      throw new HubException("Event venue cannot be empty.");
-    }
-
-    if (event.getEventStartTime() == null) {
-      throw new HubException("Event start time cannot be null.");
-    }
-
-    if (event.getEventEndTime() == null) {
-      throw new HubException("Event end time cannot be null.");
-    }
-
-    if (event.getEventEndTime().before(event.getEventStartTime())) {
-      throw new HubException("Event end time cannot be before event start time.");
-    }
-
-    // Check if the event's start time and end time are not in the past
-    Date now = new Date();
-    if (event.getEventStartTime().before(now) || event.getEventEndTime().before(now)) {
-      throw new HubException("Event start and end times must be in the future.");
-    }
-  }
 
   @Autowired
   public EventServiceImpl(ExtendedEventMapper eventMapper, OrganizationMapper organizationMapper, ExtendedPositionMapper positionMapper) {
@@ -143,7 +90,60 @@ public class EventServiceImpl implements EventService {
     }
   }
 
-  public List<EventListItem> getJoinedEventsByVolId(Integer volId) {
-    return null;
+  @Override
+  public List<EventListItem> getEventsByIds(List<Integer> ids) {
+    return eventMapper.getEventsByIds(ids);
+  }
+
+  public void validateEventBeforeSaving(Event event) throws HubException {
+    if (event.getTitle() == null || event.getTitle().trim().isEmpty()) {
+      throw new HubException("Event title cannot be empty.");
+    }
+
+    if (event.getSubtitle() == null || event.getSubtitle().trim().isEmpty()) {
+      throw new HubException("Event subtitle cannot be empty.");
+    }
+
+    if (event.getDescription() == null || event.getDescription().trim().isEmpty()) {
+      throw new HubException("Event description cannot be empty.");
+    }
+
+    if (event.getRequiredSkillTags() == null || event.getRequiredSkillTags().trim().isEmpty()) {
+      throw new HubException("Event required skill tags cannot be empty.");
+    }
+
+    if (event.getOrganizationId() == null) {
+      throw new HubException("Organization ID cannot be null.");
+    }
+
+    // Check if organization ID exists in the database
+    OrganizationExample orgExample = new OrganizationExample();
+    orgExample.createCriteria().andIdEqualTo(event.getOrganizationId());
+    long orgCount = organizationMapper.countByExample(orgExample);
+    if (orgCount == 0) {
+      throw new HubException("Organization ID does not exist.");
+    }
+
+    if (event.getVenue() == null || event.getVenue().trim().isEmpty()) {
+      throw new HubException("Event venue cannot be empty.");
+    }
+
+    if (event.getEventStartTime() == null) {
+      throw new HubException("Event start time cannot be null.");
+    }
+
+    if (event.getEventEndTime() == null) {
+      throw new HubException("Event end time cannot be null.");
+    }
+
+    if (event.getEventEndTime().before(event.getEventStartTime())) {
+      throw new HubException("Event end time cannot be before event start time.");
+    }
+
+    // Check if the event's start time and end time are not in the past
+    Date now = new Date();
+    if (event.getEventStartTime().before(now) || event.getEventEndTime().before(now)) {
+      throw new HubException("Event start and end times must be in the future.");
+    }
   }
 }

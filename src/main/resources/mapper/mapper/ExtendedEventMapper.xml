@@ -92,4 +92,17 @@
       WHERE
           e.id = #{id}
   </select>
+  <select id="getEventsByIds" resultType="ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem">
+    select a.*, o.id as organizationId, o.name as organizationname, ISNULL(vn.vn_num, 0) as joinedVolunteerNum
+    from event a
+        left join (select event_id, count(*) as vn_num
+                   from participation_record pr
+                   group by event_id) vn
+        on vn.event_id = a.id
+        left join organization o on a.organization_id = o.id
+    WHERE a.id IN
+    <foreach item="id" collection="ids" open="(" separator="," close=")">
+        #{id}
+    </foreach>
+  </select>
 </mapper>

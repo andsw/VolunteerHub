@@ -6,6 +6,7 @@ import ca.ontario.conestoga.volunteer_hub.others.exception.HubException;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventDetailVO;
 import ca.ontario.conestoga.volunteer_hub.others.vo.EventListItem;
 import ca.ontario.conestoga.volunteer_hub.service.EventService;
+import ca.ontario.conestoga.volunteer_hub.service.ParticipationRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,12 @@ import java.util.List;
 public class EventController {
 
   private final EventService eventService;
+  private final ParticipationRecordService participationRecordService;
 
   @Autowired
-  public EventController(EventService eventService) {
+  public EventController(EventService eventService, ParticipationRecordService participationRecordService) {
     this.eventService = eventService;
+    this.participationRecordService = participationRecordService;
   }
 
   @GetMapping("/{id}")
@@ -75,7 +78,8 @@ public class EventController {
     return Result.success();
   }
 
-  public Result<EventListItem> getVolsJoinedEvents(@RequestParam Integer volunteerId) {
-    return null;
+  @GetMapping("/joined")
+  public Result<List<EventListItem>> getVolsJoinedEvents(@RequestParam Integer volunteerId) {
+    return Result.success(participationRecordService.getJoinedEventsByVolId(volunteerId));
   }
 }
